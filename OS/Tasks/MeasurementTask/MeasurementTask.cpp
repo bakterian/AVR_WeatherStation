@@ -26,9 +26,7 @@ namespace Tasks
 
 	void MeasurementTask::task()
 	{
-		ERRORTYPE eRet = m_sConfig.sSensorManager.InitSensors();
-		TickType_t xLastWakeTime;
-		xLastWakeTime = xTaskGetTickCount();
+		ERRORTYPE eRet = m_sConfig.sSensorManager.initSensors();
 
         xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
         if (ET_OK == eRet)
@@ -43,7 +41,7 @@ namespace Tasks
 
 		while(1)
 		{
-			eRet = m_sConfig.sSensorManager.Run(xSerialPort, xConsoleMutex);
+			eRet = m_sConfig.sSensorManager.run();
 			if(ET_OK != eRet)
 			{
 		        xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
@@ -57,8 +55,6 @@ namespace Tasks
 		        }
 		        xSemaphoreGive(xConsoleMutex);
 			}
-
-			vTaskDelayUntil( &xLastWakeTime, ( 1000 / portTICK_PERIOD_MS ) );
 		};
 	}
 

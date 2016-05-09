@@ -28,9 +28,9 @@ ERRORTYPE ISensor::initialize()
 	return (ET_OK);
 }
 
-ERRORTYPE ISensor::Run()
+ERRORTYPE ISensor::run()
 {
-	return (ET_OK);
+	return (ET_NOK);
 }
 
 const uint8_t* ISensor::getDescription() const

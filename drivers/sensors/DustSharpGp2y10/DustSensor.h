@@ -9,6 +9,7 @@
 #define DRIVERS_SENSORS_DUST_DUSTSENSOR_H_
 
 #include "..\ISensor.h"
+#include "..\..\..\Configuration\Globals.h"
 
 namespace drivers
 {
@@ -26,9 +27,9 @@ class DustSensor : public ISensor
 	#define MIN_ADC_VOLTAGE_MV     		589U
 	#define SENOR_INTERNAL_LED     		PORTB0
 	#define SENOR_OUTPUT		   		PINA0
-	#define ADC_VREF_MV            		2560Ul
+	#define ADC_VREF_MV            		2600Ul
 	#define ADC_RESOLUTION		   		1024Ul
-	#define MEASUREMENT_COUNT	   		20U
+	#define MEASUREMENT_COUNT	   		40U
 
 	#define PRE_SAMPLING_TIMEOUT_US 	280.0f
 	#define POST_SAMPLING_TIMEOUT_US 	40.0f
@@ -45,7 +46,7 @@ class DustSensor : public ISensor
 	virtual ~DustSensor();
 
 	/**
-	 * \brief cyclicly triggers measurement start
+	 * \brief triggers sensor initialization
 	 * \return ET_OK - sensor was initialized
 	 */
 	virtual ERRORTYPE initialize();
@@ -56,7 +57,7 @@ class DustSensor : public ISensor
 	 * \return ET_OK_NOT - measurement finished with problems
 	 * \return ET_PENDING - measurement is ongoing
 	 */
-	virtual ERRORTYPE Run();
+	virtual ERRORTYPE run();
 
 	/**
 	 * \brief delivers the measurement result.
@@ -86,9 +87,46 @@ protected:
 	 */
 	void clearLED();
 
+	/**
+	 * brief Called during stand by state - resets the measurement data
+	 */
+	void doResetOfMeasurementData();
+
+	/**
+	 * brief Called during the measuring state - handles cyclic measurement
+	 */
+	void doMeasuring();
+
+	/**
+	 * brief Called during the result calculation state - calculates the dust quantity
+	 */
+	void doDustCalculation();
+
+	/**
+	 * brief Called during the error state - prints error summary message
+	 */
+	void doErrorStatusPrint();
+
+	/**
+	 * brief Called during the error state - prints error summary message
+	 */
+	void setMeasurement();
+
 private:
+
+	#define						STATE_IDLE			 			0U
+	#define						STATE_STAND_BY					1U
+	#define						STATE_MEASURING 				2U
+	#define						STATE_RESULT_CALCUALATION		3U
+	#define						STATE_ERROR						4U
+
 	uint16_t 					m_u16DustQuantity;
 	uint16_t 					m_u16AdcResultSum;
+	uint8_t						m_u8MeasurementLoop;
+	uint8_t						m_u8SensorState;
+	uint8_t 					m_u8NewSensorState;
+	TickType_t 					m_sMeasTimeout;
+	TimeOut_t					m_sMeasTimestamp;
 };
 
 } /* namespace sensors */

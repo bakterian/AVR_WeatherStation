@@ -31,8 +31,6 @@ class MeasurementTask : TaskClass
 		char const* 									csName;
 		TaskPriority 									ePriority;
 		unsigned int 									u16StackDepth;
-		//xComPortHandle 									hConsoleOut;
-		//QueueHandle_t 									hConsoleMutex;
 		Application::SensorManagement::SensorManager 	sSensorManager;
 	};
 
