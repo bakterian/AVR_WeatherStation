@@ -63,9 +63,12 @@ namespace sensors
 
 		if(m_u8NewSensorState != m_u8SensorState)
 		{
-			//xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-			//xSerialxPrintf_P( &xSerialPort, PSTR("/ %s / Internal state change to %d "), this->getDescription(),m_u8NewSensorState);
-			//xSemaphoreGive(xConsoleMutex);
+			if(m_u8NewSensorState == STATE_RESULT_CALCUALATION )
+			{
+				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
+				xSerialxPrintf_P( &xSerialPort, PSTR("/ %s / New result is ready, current system tick: %d.\r\n"), this->getDescription(),xTaskGetTickCount());
+				xSemaphoreGive(xConsoleMutex);
+			}
 
 			m_u8SensorState = m_u8NewSensorState;
 		}
@@ -162,6 +165,7 @@ namespace sensors
 
 			//next measurement will start no sooner than after 10 ms.
 			vTaskSetTimeOutState(&m_sMeasTimestamp);
+			m_sMeasTimeout = (10 / portTICK_PERIOD_MS);
 		}
 
 	}

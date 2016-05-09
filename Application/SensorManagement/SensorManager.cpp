@@ -56,7 +56,7 @@ namespace SensorManagement
 			if(ET_OK != eRet)
 			{
 				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-				xSerialxPrintf_P( &xSerialPort, PSTR("/SENSOR MGR/ One of the sensors encountered problems."));
+				xSerialxPrintf_P( &xSerialPort, PSTR("/SENSOR MGR/ One of the sensors encountered problems.\r\n"));
 				xSemaphoreGive(xConsoleMutex);
 				break;
 			}

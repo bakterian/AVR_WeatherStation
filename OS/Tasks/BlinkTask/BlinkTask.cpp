@@ -48,7 +48,7 @@ void BlinkTask::task()
 		vTaskDelayUntil( &xLastWakeTime, ( m_sConfig.u16BlinkIntervalMs / portTICK_PERIOD_MS ) );
 
        xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-       xSerialxPrintf_P( &xSerialPort, PSTR("LED HighWater @ %u, system_tick:%7lu \r\n"), uxTaskGetStackHighWaterMark(NULL), time(NULL));
+       xSerialxPrintf_P( &xSerialPort, PSTR("LED HighWater @ %u, system_tick:%d \r\n"), uxTaskGetStackHighWaterMark(NULL), xTaskGetTickCount());
        xSemaphoreGive(xConsoleMutex);
 	}
 }
