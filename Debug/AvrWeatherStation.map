@@ -1,7 +1,5 @@
 Archive member included because of file (symbol)
 
-G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
-                              ./OS/Tasks/BlinkTask/BlinkTask.o (time)
 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
                               ./drivers/sensors/tempHumidityDHT22/DhtTalker.o (xSerialxPrintf_P)
 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
@@ -15,7 +13,7 @@ G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library
 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_tick.o)
                               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o) (system_tick)
 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
-                              G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o) (__system_time)
+                              G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_tick.o) (__system_time)
 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
                               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o) (vApplicationIdleHook)
 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
@@ -60,6 +58,8 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o) (__unpack_f)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o) (__fpcmp_parts_f)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                              ./drivers/sensors/tempHumidityDHT22/DhtTalker.o (malloc)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
                               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o) (strlen_P)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
@@ -86,7 +86,9 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ulto
 Allocating common symbols
 Common symbol       size              file
 
+__brkval            0x2               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
 portTickRateHz      0x2               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+__flp               0x2               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
 ticksRemainingInSec
                     0x2               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
 __system_time       0x4               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
@@ -98,11 +100,9 @@ Discarded input sections
  .text          0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .data          0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .bss           0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalker15getReceivedDataEv
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text._ZN7drivers7sensors9DhtTalker14getTalkerStateEv
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalker3runEv
+ .text._ZN7drivers7sensors9DhtTalker4initEv
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text._ZN7drivers7sensors9DhtTalker9stateIdleEv
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
@@ -112,51 +112,23 @@ Discarded input sections
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text._ZN7drivers7sensors9DhtTalker19stateEvaluatingDataEv
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalker4initEv
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text._ZN7drivers7sensors9DhtTalker12statePreInitEv
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalkerD0Ev
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalkerD1Ev
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text._ZN7drivers7sensors9DhtTalkerD2Ev
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalkerC1ERKNS1_13ConfigurationE
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .text._ZN7drivers7sensors9DhtTalkerC2ERKNS1_13ConfigurationE
+ .text._ZN7drivers7sensors9DhtTalkerC2Ev
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text._ZN7drivers7sensors9DhtTalker18stateReceivingDataEv
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .rodata._ZN7drivers7sensors9DhtTalker17m_sTalkerStateMapE
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .rodata._ZTVN7drivers7sensors9DhtTalkerE
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .progmem.data  0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .rodata._ZZN7drivers7sensors9DhtTalkerC1ERKNS1_13ConfigurationEE3C.8
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
- .rodata._ZZN7drivers7sensors9DhtTalkerC1ERKNS1_13ConfigurationEE3C.7
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
  .text          0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
  .data          0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
  .bss           0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .text._ZN7drivers7sensors18TempHumiditySensor10initializeEv
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .text._ZN7drivers7sensors18TempHumiditySensor9getResultEv
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .text._ZN7drivers7sensors18TempHumiditySensor3runEv
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .text._ZN7drivers7sensors18TempHumiditySensorD0Ev
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .text._ZN7drivers7sensors18TempHumiditySensorD1Ev
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
  .text._ZN7drivers7sensors18TempHumiditySensorD2Ev
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .text._ZN7drivers7sensors18TempHumiditySensorC1ERKNS1_16DhtConfiguartionE
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
  .text._ZN7drivers7sensors18TempHumiditySensorC2ERKNS1_16DhtConfiguartionE
-                0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
- .rodata._ZTVN7drivers7sensors18TempHumiditySensorE
                 0x00000000        0x0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
  .text          0x00000000        0x0 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
  .data          0x00000000        0x0 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
@@ -169,8 +141,6 @@ Discarded input sections
  .data          0x00000000        0x0 ./drivers/sensors/ISensor.o
  .bss           0x00000000        0x0 ./drivers/sensors/ISensor.o
  .text._ZN7drivers7sensors7ISensorC1ERKNS1_13ConfigurationE
-                0x00000000        0x0 ./drivers/sensors/ISensor.o
- .text._ZNK7drivers7sensors7ISensor13getSensorTypeEv
                 0x00000000        0x0 ./drivers/sensors/ISensor.o
  .text          0x00000000        0x0 ./OS/Tasks/MeasurementTask/MeasurementTask.o
  .data          0x00000000        0x0 ./OS/Tasks/MeasurementTask/MeasurementTask.o
@@ -215,6 +185,10 @@ Discarded input sections
                 0x00000000        0x0 ./Configuration/Globals.o
  .text.__cxa_finalize
                 0x00000000        0x0 ./Configuration/Globals.o
+ .text.__cxa_guard_acquire
+                0x00000000        0x0 ./Configuration/Globals.o
+ .text.__cxa_guard_release
+                0x00000000        0x0 ./Configuration/Globals.o
  .text.__cxa_guard_abort
                 0x00000000        0x0 ./Configuration/Globals.o
  .text._Znwj    0x00000000        0x0 ./Configuration/Globals.o
@@ -227,15 +201,10 @@ Discarded input sections
                 0x00000000        0x0 ./Application/SensorManagement/SensorManager.o
  .text          0x00000000        0x0 ./main.o
  .bss           0x00000000        0x0 ./main.o
- .text._Z6atexitPFvvE
-                0x00000000        0x0 ./main.o
  .text._ZN11Application16SensorManagement13SensorManagerC1ERKS1_
                 0x00000000        0x0 ./main.o
  .text._ZN2OS5Tasks15MeasurementTask17TaskConfigurationD1Ev
                 0x00000000        0x0 ./main.o
- .text          0x00000000        0x0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
- .data          0x00000000        0x0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
- .bss           0x00000000        0x0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
  .text          0x00000000        0x0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
  .data          0x00000000        0x0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
  .bss           0x00000000        0x0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
@@ -444,6 +413,8 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
  .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
  .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
  .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
@@ -600,7 +571,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x5a56
+.text           0x00000000     0x5ff2
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -608,45 +579,45 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.vectors)
  *(.progmem.gcc*)
  *(.progmem*)
- .progmem.data  0x00000054       0x5f ./drivers/sensors/DustSharpGp2y10/DustSensor.o
- .progmem.data  0x000000b3       0x90 ./OS/Tasks/MeasurementTask/MeasurementTask.o
- .progmem.data  0x00000143       0x28 ./OS/Tasks/BlinkTask/BlinkTask.o
- .progmem.data  0x0000016b       0x44 ./Application/SensorManagement/SensorManager.o
- .progmem.data  0x000001af       0x29 ./main.o
-                0x000001d8                . = ALIGN (0x2)
-                0x000001d8                __trampolines_start = .
+ .progmem.data  0x00000054       0x3b ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+ .progmem.data  0x0000008f       0x90 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+ .progmem.data  0x0000011f       0x26 ./OS/Tasks/BlinkTask/BlinkTask.o
+ .progmem.data  0x00000145       0x46 ./Application/SensorManagement/SensorManager.o
+ .progmem.data  0x0000018b       0x29 ./main.o
+                0x000001b4                . = ALIGN (0x2)
+                0x000001b4                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000001d8        0x0 linker stubs
+ .trampolines   0x000001b4        0x0 linker stubs
  *(.trampolines*)
-                0x000001d8                __trampolines_end = .
+                0x000001b4                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000001d8                __ctors_start = .
+                0x000001b4                __ctors_start = .
  *(.ctors)
-                0x000001d8                __ctors_end = .
-                0x000001d8                __dtors_start = .
+                0x000001b4                __ctors_end = .
+                0x000001b4                __dtors_start = .
  *(.dtors)
-                0x000001d8                __dtors_end = .
+                0x000001b4                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000001d8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x000001d8                __init
+ .init0         0x000001b4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x000001b4                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000001d8        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .init2         0x000001b4        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000001e4       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x000001e4                __do_copy_data
- .init4         0x000001fa       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x000001fa                __do_clear_bss
+ .init4         0x000001c0       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x000001c0                __do_copy_data
+ .init4         0x000001d6       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000001d6                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -657,425 +628,456 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000020a        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .init9         0x000001e6        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  *(.init9)
  *(.text)
- .text          0x00000212        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x00000212                __vector_1
-                0x00000212                __vector_12
-                0x00000212                __bad_interrupt
-                0x00000212                __vector_6
-                0x00000212                __vector_3
-                0x00000212                __vector_11
-                0x00000212                __vector_17
-                0x00000212                __vector_19
-                0x00000212                __vector_5
-                0x00000212                __vector_4
-                0x00000212                __vector_9
-                0x00000212                __vector_2
-                0x00000212                __vector_15
-                0x00000212                __vector_8
-                0x00000212                __vector_10
-                0x00000212                __vector_16
-                0x00000212                __vector_18
-                0x00000212                __vector_20
- .text          0x00000214       0x38 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_tick.o)
-                0x00000214                system_tick
- .text          0x0000024c       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
-                0x0000024c                __fixunssfsi
- .text          0x0000029c      0x344 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
-                0x00000534                __subsf3
-                0x0000058e                __addsf3
- .text          0x000005e0      0x1ee c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
-                0x000005e0                __mulsf3
- .text          0x000007ce      0x152 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
-                0x000007ce                __divsf3
- .text          0x00000920       0x5a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
-                0x00000920                __gtsf2
- .text          0x0000097a       0x5a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
-                0x0000097a                __gesf2
- .text          0x000009d4       0x5a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
-                0x000009d4                __ltsf2
- .text          0x00000a2e       0xa6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
-                0x00000a2e                __fixsfsi
- .text          0x00000ad4      0x1aa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
-                0x00000ad4                __pack_f
- .text          0x00000c7e       0xf0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
-                0x00000c7e                __unpack_f
- .text          0x00000d6e       0xb2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
-                0x00000d6e                __fpcmp_parts_f
-                0x00000e20                . = ALIGN (0x2)
+ .text          0x000001ee        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x000001ee                __vector_1
+                0x000001ee                __vector_12
+                0x000001ee                __bad_interrupt
+                0x000001ee                __vector_6
+                0x000001ee                __vector_3
+                0x000001ee                __vector_11
+                0x000001ee                __vector_17
+                0x000001ee                __vector_19
+                0x000001ee                __vector_5
+                0x000001ee                __vector_4
+                0x000001ee                __vector_9
+                0x000001ee                __vector_2
+                0x000001ee                __vector_15
+                0x000001ee                __vector_8
+                0x000001ee                __vector_10
+                0x000001ee                __vector_16
+                0x000001ee                __vector_18
+                0x000001ee                __vector_20
+ .text          0x000001f0       0x38 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_tick.o)
+                0x000001f0                system_tick
+ .text          0x00000228       0x50 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+                0x00000228                __fixunssfsi
+ .text          0x00000278      0x344 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+                0x00000510                __subsf3
+                0x0000056a                __addsf3
+ .text          0x000005bc      0x1ee c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+                0x000005bc                __mulsf3
+ .text          0x000007aa      0x152 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+                0x000007aa                __divsf3
+ .text          0x000008fc       0x5a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+                0x000008fc                __gtsf2
+ .text          0x00000956       0x5a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+                0x00000956                __gesf2
+ .text          0x000009b0       0x5a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+                0x000009b0                __ltsf2
+ .text          0x00000a0a       0xa6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+                0x00000a0a                __fixsfsi
+ .text          0x00000ab0      0x1aa c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+                0x00000ab0                __pack_f
+ .text          0x00000c5a       0xf0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+                0x00000c5a                __unpack_f
+ .text          0x00000d4a       0xb2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+                0x00000d4a                __fpcmp_parts_f
+                0x00000dfc                . = ALIGN (0x2)
  *(.text.*)
+ .text._ZN7drivers7sensors9DhtTalker15getReceivedDataEv
+                0x00000dfc       0x1c ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                0x00000dfc                drivers::sensors::DhtTalker::getReceivedData()
+ .text._ZN7drivers7sensors9DhtTalker3runEv
+                0x00000e18       0x1a ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                0x00000e18                drivers::sensors::DhtTalker::run()
+ .text._ZN7drivers7sensors9DhtTalkerD0Ev
+                0x00000e32       0x40 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                0x00000e32                drivers::sensors::DhtTalker::~DhtTalker()
+ .text._ZN7drivers7sensors9DhtTalkerD1Ev
+                0x00000e72       0x40 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                0x00000e72                drivers::sensors::DhtTalker::~DhtTalker()
+ .text._ZN7drivers7sensors9DhtTalkerC1Ev
+                0x00000eb2       0x6a ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                0x00000eb2                drivers::sensors::DhtTalker::DhtTalker()
+ .text._ZN7drivers7sensors18TempHumiditySensor10initializeEv
+                0x00000f1c       0x1a ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x00000f1c                drivers::sensors::TempHumiditySensor::initialize()
+ .text._ZN7drivers7sensors18TempHumiditySensor9getResultEv
+                0x00000f36       0xfa ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x00000f36                drivers::sensors::TempHumiditySensor::getResult()
+ .text._ZN7drivers7sensors18TempHumiditySensor3runEv
+                0x00001030       0x30 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x00001030                drivers::sensors::TempHumiditySensor::run()
+ .text._ZN7drivers7sensors18TempHumiditySensorD0Ev
+                0x00001060       0x3a ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x00001060                drivers::sensors::TempHumiditySensor::~TempHumiditySensor()
+ .text._ZN7drivers7sensors18TempHumiditySensorD1Ev
+                0x0000109a       0x3a ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x0000109a                drivers::sensors::TempHumiditySensor::~TempHumiditySensor()
+ .text._ZN7drivers7sensors18TempHumiditySensorC1ERKNS1_16DhtConfiguartionE
+                0x000010d4       0x86 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x000010d4                drivers::sensors::TempHumiditySensor::TempHumiditySensor(drivers::sensors::TempHumiditySensor::DhtConfiguartion const&)
  .text._ZN7drivers7sensors10DustSensor9getResultEv
-                0x00000e20       0x2a ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000e20                drivers::sensors::DustSensor::getResult()
+                0x0000115a       0x2a ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x0000115a                drivers::sensors::DustSensor::getResult()
  .text._ZN7drivers7sensors10DustSensor12readAdcValueEv
-                0x00000e4a       0x8c ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000e4a                drivers::sensors::DustSensor::readAdcValue()
+                0x00001184       0x8c ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001184                drivers::sensors::DustSensor::readAdcValue()
  .text._ZN7drivers7sensors10DustSensor6setLEDEv
-                0x00000ed6       0x26 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000ed6                drivers::sensors::DustSensor::setLED()
+                0x00001210       0x26 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001210                drivers::sensors::DustSensor::setLED()
  .text._ZN7drivers7sensors10DustSensor8clearLEDEv
-                0x00000efc       0x26 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000efc                drivers::sensors::DustSensor::clearLED()
+                0x00001236       0x26 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001236                drivers::sensors::DustSensor::clearLED()
  .text._ZN7drivers7sensors10DustSensor24doResetOfMeasurementDataEv
-                0x00000f22       0x2e ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000f22                drivers::sensors::DustSensor::doResetOfMeasurementData()
+                0x0000125c       0x2e ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x0000125c                drivers::sensors::DustSensor::doResetOfMeasurementData()
  .text._ZN7drivers7sensors10DustSensor17doDustCalculationEv
-                0x00000f50       0x88 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000f50                drivers::sensors::DustSensor::doDustCalculation()
+                0x0000128a       0x88 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x0000128a                drivers::sensors::DustSensor::doDustCalculation()
  .text._ZN7drivers7sensors10DustSensor18doErrorStatusPrintEv
-                0x00000fd8       0x80 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00000fd8                drivers::sensors::DustSensor::doErrorStatusPrint()
+                0x00001312       0x80 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001312                drivers::sensors::DustSensor::doErrorStatusPrint()
  .text._ZN7drivers7sensors10DustSensor10initializeEv
-                0x00001058       0x74 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00001058                drivers::sensors::DustSensor::initialize()
+                0x00001392       0x74 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001392                drivers::sensors::DustSensor::initialize()
  .text._ZN7drivers7sensors10DustSensorD0Ev
-                0x000010cc       0x38 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x000010cc                drivers::sensors::DustSensor::~DustSensor()
+                0x00001406       0x38 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001406                drivers::sensors::DustSensor::~DustSensor()
  .text._ZN7drivers7sensors10DustSensorD1Ev
-                0x00001104       0x38 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00001104                drivers::sensors::DustSensor::~DustSensor()
+                0x0000143e       0x38 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x0000143e                drivers::sensors::DustSensor::~DustSensor()
  .text._ZN7drivers7sensors10DustSensorC1ERKNS0_7ISensor13ConfigurationE
-                0x0000113c       0xac ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x0000113c                drivers::sensors::DustSensor::DustSensor(drivers::sensors::ISensor::Configuration const&)
+                0x00001476       0x62 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x00001476                drivers::sensors::DustSensor::DustSensor(drivers::sensors::ISensor::Configuration const&)
  .text._ZN7drivers7sensors10DustSensor14makeSingleMeasEv
-                0x000011e8      0x30e ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x000011e8                drivers::sensors::DustSensor::makeSingleMeas()
+                0x000014d8      0x316 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x000014d8                drivers::sensors::DustSensor::makeSingleMeas()
  .text._ZN7drivers7sensors10DustSensor11doMeasuringEv
-                0x000014f6       0xa0 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x000014f6                drivers::sensors::DustSensor::doMeasuring()
+                0x000017ee       0xac ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x000017ee                drivers::sensors::DustSensor::doMeasuring()
  .text._ZN7drivers7sensors10DustSensor3runEv
-                0x00001596      0x11c ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x00001596                drivers::sensors::DustSensor::run()
+                0x0000189a       0x9e ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x0000189a                drivers::sensors::DustSensor::run()
  .text._ZN7drivers7sensors7ISensor9getResultEv
-                0x000016b2       0x24 ./drivers/sensors/ISensor.o
-                0x000016b2                drivers::sensors::ISensor::getResult()
+                0x00001938       0x24 ./drivers/sensors/ISensor.o
+                0x00001938                drivers::sensors::ISensor::getResult()
  .text._ZN7drivers7sensors7ISensorC2ERKNS1_13ConfigurationE
-                0x000016d6       0x72 ./drivers/sensors/ISensor.o
-                0x000016d6                drivers::sensors::ISensor::ISensor(drivers::sensors::ISensor::Configuration const&)
+                0x0000195c       0x72 ./drivers/sensors/ISensor.o
+                0x0000195c                drivers::sensors::ISensor::ISensor(drivers::sensors::ISensor::Configuration const&)
  .text._ZN7drivers7sensors7ISensor10initializeEv
-                0x00001748       0x1a ./drivers/sensors/ISensor.o
-                0x00001748                drivers::sensors::ISensor::initialize()
+                0x000019ce       0x1a ./drivers/sensors/ISensor.o
+                0x000019ce                drivers::sensors::ISensor::initialize()
  .text._ZN7drivers7sensors7ISensor3runEv
-                0x00001762       0x1a ./drivers/sensors/ISensor.o
-                0x00001762                drivers::sensors::ISensor::run()
+                0x000019e8       0x1a ./drivers/sensors/ISensor.o
+                0x000019e8                drivers::sensors::ISensor::run()
  .text._ZNK7drivers7sensors7ISensor14getDescriptionEv
-                0x0000177c       0x20 ./drivers/sensors/ISensor.o
-                0x0000177c                drivers::sensors::ISensor::getDescription() const
+                0x00001a02       0x20 ./drivers/sensors/ISensor.o
+                0x00001a02                drivers::sensors::ISensor::getDescription() const
  .text._ZNK7drivers7sensors7ISensor14getSensorUnitsEv
-                0x0000179c       0x20 ./drivers/sensors/ISensor.o
-                0x0000179c                drivers::sensors::ISensor::getSensorUnits() const
+                0x00001a22       0x20 ./drivers/sensors/ISensor.o
+                0x00001a22                drivers::sensors::ISensor::getSensorUnits() const
+ .text._ZNK7drivers7sensors7ISensor13getSensorTypeEv
+                0x00001a42       0x1e ./drivers/sensors/ISensor.o
+                0x00001a42                drivers::sensors::ISensor::getSensorType() const
  .text._ZN7drivers7sensors7ISensorD0Ev
-                0x000017bc       0x32 ./drivers/sensors/ISensor.o
-                0x000017bc                drivers::sensors::ISensor::~ISensor()
+                0x00001a60       0x32 ./drivers/sensors/ISensor.o
+                0x00001a60                drivers::sensors::ISensor::~ISensor()
  .text._ZN7drivers7sensors7ISensorD1Ev
-                0x000017ee       0x32 ./drivers/sensors/ISensor.o
-                0x000017ee                drivers::sensors::ISensor::~ISensor()
+                0x00001a92       0x32 ./drivers/sensors/ISensor.o
+                0x00001a92                drivers::sensors::ISensor::~ISensor()
  .text._ZN7drivers7sensors7ISensorD2Ev
-                0x00001820       0x32 ./drivers/sensors/ISensor.o
-                0x00001820                drivers::sensors::ISensor::~ISensor()
+                0x00001ac4       0x32 ./drivers/sensors/ISensor.o
+                0x00001ac4                drivers::sensors::ISensor::~ISensor()
  .text._ZN11Application16SensorManagement13SensorManagerC1ERKS1_
-                0x00001852       0xd4 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001852                Application::SensorManagement::SensorManager::SensorManager(Application::SensorManagement::SensorManager const&)
+                0x00001af6       0xd4 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001af6                Application::SensorManagement::SensorManager::SensorManager(Application::SensorManagement::SensorManager const&)
  .text._ZN2OS5Tasks15MeasurementTask17TaskConfigurationC1ERKS2_
-                0x00001926       0x62 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001926                OS::Tasks::MeasurementTask::TaskConfiguration::TaskConfiguration(OS::Tasks::MeasurementTask::TaskConfiguration const&)
+                0x00001bca       0x62 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001bca                OS::Tasks::MeasurementTask::TaskConfiguration::TaskConfiguration(OS::Tasks::MeasurementTask::TaskConfiguration const&)
  .text._ZN2OS5Tasks15MeasurementTask4taskEv
-                0x00001988       0xc0 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001988                OS::Tasks::MeasurementTask::task()
+                0x00001c2c       0xc0 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001c2c                OS::Tasks::MeasurementTask::task()
  .text._ZN2OS5Tasks15MeasurementTask17TaskConfigurationD1Ev
-                0x00001a48       0x20 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001a48                OS::Tasks::MeasurementTask::TaskConfiguration::~TaskConfiguration()
+                0x00001cec       0x20 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001cec                OS::Tasks::MeasurementTask::TaskConfiguration::~TaskConfiguration()
  .text._ZN4TaskD2Ev
-                0x00001a68       0x4a ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001a68                Task::~Task()
+                0x00001d0c       0x4a ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001d0c                Task::~Task()
  .text._ZN9TaskClassD2Ev
-                0x00001ab2       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001ab2                TaskClass::~TaskClass()
+                0x00001d56       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001d56                TaskClass::~TaskClass()
  .text._ZN2OS5Tasks15MeasurementTaskD0Ev
-                0x00001aea       0x40 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001aea                OS::Tasks::MeasurementTask::~MeasurementTask()
+                0x00001d8e       0x40 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001d8e                OS::Tasks::MeasurementTask::~MeasurementTask()
  .text._ZN2OS5Tasks15MeasurementTaskD1Ev
-                0x00001b2a       0x40 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001b2a                OS::Tasks::MeasurementTask::~MeasurementTask()
+                0x00001dce       0x40 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001dce                OS::Tasks::MeasurementTask::~MeasurementTask()
  .text._ZN9TaskClassD0Ev
-                0x00001b6a       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001b6a                TaskClass::~TaskClass()
+                0x00001e0e       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001e0e                TaskClass::~TaskClass()
  .text._ZN9TaskClassD1Ev
-                0x00001ba2       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001ba2                TaskClass::~TaskClass()
+                0x00001e46       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001e46                TaskClass::~TaskClass()
  .text._ZN4TaskD0Ev
-                0x00001bda       0x4a ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001bda                Task::~Task()
+                0x00001e7e       0x4a ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001e7e                Task::~Task()
  .text._ZN4TaskD1Ev
-                0x00001c24       0x4a ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001c24                Task::~Task()
+                0x00001ec8       0x4a ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001ec8                Task::~Task()
  .text._ZN9TaskClass7taskfunEPv
-                0x00001c6e       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001c6e                TaskClass::taskfun(void*)
+                0x00001f12       0x38 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001f12                TaskClass::taskfun(void*)
  .text._ZN4TaskC2EPKcPFvPvE12TaskPriorityjS2_
-                0x00001ca6       0x62 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001ca6                Task::Task(char const*, void (*)(void*), TaskPriority, unsigned int, void*)
+                0x00001f4a       0x62 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001f4a                Task::Task(char const*, void (*)(void*), TaskPriority, unsigned int, void*)
  .text._ZN9TaskClassC2EPKc12TaskPriorityj
-                0x00001d08       0x4c ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001d08                TaskClass::TaskClass(char const*, TaskPriority, unsigned int)
+                0x00001fac       0x4c ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001fac                TaskClass::TaskClass(char const*, TaskPriority, unsigned int)
  .text._ZN2OS5Tasks15MeasurementTaskC1ERKNS1_17TaskConfigurationE
-                0x00001d54       0x56 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x00001d54                OS::Tasks::MeasurementTask::MeasurementTask(OS::Tasks::MeasurementTask::TaskConfiguration const&)
+                0x00001ff8       0x56 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x00001ff8                OS::Tasks::MeasurementTask::MeasurementTask(OS::Tasks::MeasurementTask::TaskConfiguration const&)
  .text._ZN2OS5Tasks9BlinkTask4taskEv
-                0x00001daa      0x118 ./OS/Tasks/BlinkTask/BlinkTask.o
-                0x00001daa                OS::Tasks::BlinkTask::task()
+                0x0000204e      0x110 ./OS/Tasks/BlinkTask/BlinkTask.o
+                0x0000204e                OS::Tasks::BlinkTask::task()
  .text._ZN2OS5Tasks9BlinkTaskD0Ev
-                0x00001ec2       0x38 ./OS/Tasks/BlinkTask/BlinkTask.o
-                0x00001ec2                OS::Tasks::BlinkTask::~BlinkTask()
+                0x0000215e       0x38 ./OS/Tasks/BlinkTask/BlinkTask.o
+                0x0000215e                OS::Tasks::BlinkTask::~BlinkTask()
  .text._ZN2OS5Tasks9BlinkTaskD1Ev
-                0x00001efa       0x38 ./OS/Tasks/BlinkTask/BlinkTask.o
-                0x00001efa                OS::Tasks::BlinkTask::~BlinkTask()
+                0x00002196       0x38 ./OS/Tasks/BlinkTask/BlinkTask.o
+                0x00002196                OS::Tasks::BlinkTask::~BlinkTask()
  .text._ZN2OS5Tasks9BlinkTaskC1ERKNS1_17TaskConfigurationE
-                0x00001f32       0x92 ./OS/Tasks/BlinkTask/BlinkTask.o
-                0x00001f32                OS::Tasks::BlinkTask::BlinkTask(OS::Tasks::BlinkTask::TaskConfiguration const&)
- .text.__cxa_guard_acquire
-                0x00001fc4       0x32 ./Configuration/Globals.o
-                0x00001fc4                __cxa_guard_acquire
- .text.__cxa_guard_release
-                0x00001ff6       0x20 ./Configuration/Globals.o
-                0x00001ff6                __cxa_guard_release
+                0x000021ce       0x92 ./OS/Tasks/BlinkTask/BlinkTask.o
+                0x000021ce                OS::Tasks::BlinkTask::BlinkTask(OS::Tasks::BlinkTask::TaskConfiguration const&)
  .text.__cxa_pure_virtual
-                0x00002016       0x14 ./Configuration/Globals.o
-                0x00002016                __cxa_pure_virtual
- .text._ZdlPv   0x0000202a       0x20 ./Configuration/Globals.o
-                0x0000202a                operator delete(void*)
+                0x00002260       0x14 ./Configuration/Globals.o
+                0x00002260                __cxa_pure_virtual
+ .text._ZdlPv   0x00002274       0x20 ./Configuration/Globals.o
+                0x00002274                operator delete(void*)
  .text._ZN11Application16SensorManagement13SensorManagerC1ERKNS1_19SensorConfigurationE
-                0x0000204a       0xca ./Application/SensorManagement/SensorManager.o
-                0x0000204a                Application::SensorManagement::SensorManager::SensorManager(Application::SensorManagement::SensorManager::SensorConfiguration const&)
+                0x00002294       0xca ./Application/SensorManagement/SensorManager.o
+                0x00002294                Application::SensorManagement::SensorManager::SensorManager(Application::SensorManagement::SensorManager::SensorConfiguration const&)
  .text._ZN11Application16SensorManagement13SensorManager18printResultsStdOutEv
-                0x00002114      0x18e ./Application/SensorManagement/SensorManager.o
-                0x00002114                Application::SensorManagement::SensorManager::printResultsStdOut()
+                0x0000235e      0x16e ./Application/SensorManagement/SensorManager.o
+                0x0000235e                Application::SensorManagement::SensorManager::printResultsStdOut()
  .text._ZN11Application16SensorManagement13SensorManager3runEv
-                0x000022a2      0x134 ./Application/SensorManagement/SensorManager.o
-                0x000022a2                Application::SensorManagement::SensorManager::run()
+                0x000024cc      0x124 ./Application/SensorManagement/SensorManager.o
+                0x000024cc                Application::SensorManagement::SensorManager::run()
  .text._ZN11Application16SensorManagement13SensorManager11initSensorsEv
-                0x000023d6       0xa0 ./Application/SensorManagement/SensorManager.o
-                0x000023d6                Application::SensorManagement::SensorManager::initSensors()
+                0x000025f0       0x90 ./Application/SensorManagement/SensorManager.o
+                0x000025f0                Application::SensorManagement::SensorManager::initSensors()
  .text._ZN11Application16SensorManagement13SensorManagerD0Ev
-                0x00002476       0x32 ./Application/SensorManagement/SensorManager.o
-                0x00002476                Application::SensorManagement::SensorManager::~SensorManager()
+                0x00002680       0x32 ./Application/SensorManagement/SensorManager.o
+                0x00002680                Application::SensorManagement::SensorManager::~SensorManager()
  .text._ZN11Application16SensorManagement13SensorManagerD1Ev
-                0x000024a8       0x32 ./Application/SensorManagement/SensorManager.o
-                0x000024a8                Application::SensorManagement::SensorManager::~SensorManager()
- .text.main     0x000024da      0x238 ./main.o
-                0x000024da                main
- .text.__tcf_0  0x00002712       0x1a ./main.o
- .text.time     0x0000272c       0x5e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
-                0x0000272c                time
+                0x000026b2       0x32 ./Application/SensorManagement/SensorManager.o
+                0x000026b2                Application::SensorManagement::SensorManager::~SensorManager()
+ .text.main     0x000026e4      0x436 ./main.o
+                0x000026e4                main
  .text.xSerialxPrintf_P
-                0x0000278a       0x6c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x0000278a                xSerialxPrintf_P
+                0x00002b1a       0x6c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x00002b1a                xSerialxPrintf_P
  .text.xSerialxPrint
-                0x000027f6       0x5e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x000027f6                xSerialxPrint
+                0x00002b86       0x5e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x00002b86                xSerialxPrint
  .text.xSerialPutChar
-                0x00002854      0x2b4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x00002854                xSerialPutChar
+                0x00002be4      0x2b4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x00002be4                xSerialPutChar
  .text.xSerialPortInitMinimal
-                0x00002b08      0x2a0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x00002b08                xSerialPortInitMinimal
+                0x00002e98      0x2a0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x00002e98                xSerialPortInitMinimal
  .text.avrSerialxPrint_P
-                0x00002da8       0x68 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x00002da8                avrSerialxPrint_P
+                0x00003138       0x68 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x00003138                avrSerialxPrint_P
  .text.avrSerialxWrite
-                0x00002e10      0x1be G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x00002e10                avrSerialxWrite
+                0x000031a0      0x1be G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x000031a0                avrSerialxWrite
  .text.avrSerialxCheckTxReady
-                0x00002fce       0x3c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x00002fce                avrSerialxCheckTxReady
+                0x0000335e       0x3c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x0000335e                avrSerialxCheckTxReady
  .text.__vector_13
-                0x0000300a      0x122 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x0000300a                __vector_13
+                0x0000339a      0x122 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x0000339a                __vector_13
  .text.__vector_14
-                0x0000312c      0x10a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                0x0000312c                __vector_14
+                0x000034bc      0x10a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                0x000034bc                __vector_14
  .text.pvPortMalloc
-                0x00003236      0x1b8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
-                0x00003236                pvPortMalloc
+                0x000035c6      0x1b8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                0x000035c6                pvPortMalloc
  .text.vPortFree
-                0x000033ee       0xc4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
-                0x000033ee                vPortFree
+                0x0000377e       0xc4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                0x0000377e                vPortFree
  .text.prvHeapInit
-                0x000034b2       0x64 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                0x00003842       0x64 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
  .text.xQueueCreateMutex
-                0x00003516       0x8e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
-                0x00003516                xQueueCreateMutex
+                0x000038a6       0x8e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x000038a6                xQueueCreateMutex
  .text.xQueueGive
-                0x000035a4      0x142 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
-                0x000035a4                xQueueGive
+                0x00003934      0x142 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x00003934                xQueueGive
  .text.xQueueGenericReceive
-                0x000036e6      0x192 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
-                0x000036e6                xQueueGenericReceive
+                0x00003a76      0x192 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x00003a76                xQueueGenericReceive
  .text.prvCopyDataFromQueue
-                0x00003878       0x88 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x00003c08       0x88 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
  .text.prvUnlockQueue
-                0x00003900       0xa0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x00003c90       0xa0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
  .text.prvIsQueueEmpty
-                0x000039a0       0x36 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x00003d30       0x36 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
  .text.prvIsQueueFull
-                0x000039d6       0x3c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+                0x00003d66       0x3c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
  .text.xTaskGenericCreate
-                0x00003a12      0x188 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003a12                xTaskGenericCreate
+                0x00003da2      0x188 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00003da2                xTaskGenericCreate
  .text.vTaskDelete
-                0x00003b9a       0xbc G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003b9a                vTaskDelete
+                0x00003f2a       0xbc G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00003f2a                vTaskDelete
  .text.vTaskDelayUntil
-                0x00003c56       0xd0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003c56                vTaskDelayUntil
+                0x00003fe6       0xd0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00003fe6                vTaskDelayUntil
  .text.vTaskStartScheduler
-                0x00003d26       0x76 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003d26                vTaskStartScheduler
+                0x000040b6       0x76 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x000040b6                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00003d9c       0x1e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003d9c                vTaskSuspendAll
+                0x0000412c       0x1e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0000412c                vTaskSuspendAll
  .text.xTaskResumeAll
-                0x00003dba      0x10c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003dba                xTaskResumeAll
+                0x0000414a      0x10c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0000414a                xTaskResumeAll
  .text.xTaskGetTickCount
-                0x00003ec6       0x2e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003ec6                xTaskGetTickCount
+                0x00004256       0x2e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004256                xTaskGetTickCount
  .text.xTaskIncrementTick
-                0x00003ef4      0x1ba G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00003ef4                xTaskIncrementTick
+                0x00004284      0x1ba G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004284                xTaskIncrementTick
  .text.vTaskSwitchContext
-                0x000040ae      0x108 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x000040ae                vTaskSwitchContext
+                0x0000443e      0x108 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0000443e                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x000041b6       0x80 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x000041b6                vTaskPlaceOnEventList
+                0x00004546       0x80 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004546                vTaskPlaceOnEventList
  .text.xTaskRemoveFromEventList
-                0x00004236       0xc8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00004236                xTaskRemoveFromEventList
+                0x000045c6       0xc8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x000045c6                xTaskRemoveFromEventList
  .text.vTaskSetTimeOutState
-                0x000042fe       0x32 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x000042fe                vTaskSetTimeOutState
+                0x0000468e       0x32 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0000468e                vTaskSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x00004330       0xc6 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00004330                xTaskCheckForTimeOut
+                0x000046c0       0xc6 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x000046c0                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x000043f6       0x1a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x000043f6                vTaskMissedYield
+                0x00004786       0x1a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004786                vTaskMissedYield
  .text.prvIdleTask
-                0x00004410       0x20 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x000047a0       0x20 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvInitialiseTCBVariables
-                0x00004430       0xe6 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x000047c0       0xe6 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvInitialiseTaskLists
-                0x00004516       0x74 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x000048a6       0x74 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvCheckTasksWaitingTermination
-                0x0000458a       0x6e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0000491a       0x6e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvAddCurrentTaskToDelayedList
-                0x000045f8       0x8a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004988       0x8a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvAllocateTCBAndStack
-                0x00004682       0x96 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004a12       0x98 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvTaskCheckFreeStackSpace
-                0x00004718       0x4c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004aaa       0x4c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.uxTaskGetStackHighWaterMark
-                0x00004764       0x50 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00004764                uxTaskGetStackHighWaterMark
+                0x00004af6       0x50 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004af6                uxTaskGetStackHighWaterMark
  .text.prvDeleteTCB
-                0x000047b4       0x28 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004b46       0x28 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.prvResetNextTaskUnblockTime
-                0x000047dc       0x52 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004b6e       0x52 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .text.vTaskPriorityInherit
-                0x0000482e      0x108 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x0000482e                vTaskPriorityInherit
+                0x00004bc0      0x108 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004bc0                vTaskPriorityInherit
  .text.xTaskPriorityDisinherit
-                0x00004936       0xd2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00004936                xTaskPriorityDisinherit
+                0x00004cc8       0xd2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004cc8                xTaskPriorityDisinherit
  .text.pvTaskIncrementMutexHeldCount
-                0x00004a08       0x32 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00004a08                pvTaskIncrementMutexHeldCount
+                0x00004d9a       0x32 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00004d9a                pvTaskIncrementMutexHeldCount
  .text.pxPortInitialiseStack
-                0x00004a3a      0x2f0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-                0x00004a3a                pxPortInitialiseStack
+                0x00004dcc      0x2f0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x00004dcc                pxPortInitialiseStack
  .text.xPortStartScheduler
-                0x00004d2a       0x6a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-                0x00004d2a                xPortStartScheduler
+                0x000050bc       0x6a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x000050bc                xPortStartScheduler
  .text.vPortYield
-                0x00004d94       0xb0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-                0x00004d94                vPortYield
+                0x00005126       0xb0 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x00005126                vPortYield
  .text.vPortYieldFromTick
-                0x00004e44       0xe8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-                0x00004e44                vPortYieldFromTick
+                0x000051d6       0xe8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x000051d6                vPortYieldFromTick
  .text.prvSetupTimerInterrupt
-                0x00004f2c      0x10e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x000052be      0x10e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
  .text.__vector_7
-                0x0000503a        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-                0x0000503a                __vector_7
+                0x000053cc        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x000053cc                __vector_7
  .text.vApplicationIdleHook
-                0x0000503e       0x62 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
-                0x0000503e                vApplicationIdleHook
+                0x000053d0       0x62 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
+                0x000053d0                vApplicationIdleHook
  .text.vApplicationStackOverflowHook
-                0x000050a0       0xf8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
-                0x000050a0                vApplicationStackOverflowHook
+                0x00005432       0xf8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
+                0x00005432                vApplicationStackOverflowHook
  .text.vListInitialise
-                0x00005198       0x50 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
-                0x00005198                vListInitialise
+                0x0000552a       0x50 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+                0x0000552a                vListInitialise
  .text.vListInitialiseItem
-                0x000051e8       0x1c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
-                0x000051e8                vListInitialiseItem
+                0x0000557a       0x1c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+                0x0000557a                vListInitialiseItem
  .text.vListInsertEnd
-                0x00005204       0x78 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
-                0x00005204                vListInsertEnd
+                0x00005596       0x78 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+                0x00005596                vListInsertEnd
  .text.vListInsert
-                0x0000527c       0xc2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
-                0x0000527c                vListInsert
+                0x0000560e       0xc2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+                0x0000560e                vListInsert
  .text.uxListRemove
-                0x0000533e       0x8e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
-                0x0000533e                uxListRemove
- .text.libgcc   0x000053cc       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x000053cc                __mulsi3
- .text.libgcc   0x0000540a       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000540a                __udivmodhi4
- .text.libgcc   0x00005432       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00005432                __udivmodsi4
- .text.libgcc   0x00005476       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00005476                __prologue_saves__
- .text.libgcc   0x000054ae       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x000054ae                __epilogue_restores__
+                0x000056d0       0x8e G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+                0x000056d0                uxListRemove
+ .text.libgcc   0x0000575e       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x0000575e                __mulsi3
+ .text.libgcc   0x0000579c       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000579c                __udivmodhi4
+ .text.libgcc   0x000057c4       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000057c4                __udivmodsi4
+ .text.libgcc   0x00005808       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00005808                __prologue_saves__
+ .text.libgcc   0x00005840       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00005840                __epilogue_restores__
  .text.avr-libc
-                0x000054e4       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
-                0x000054e4                strlen_P
+                0x00005876      0x20a c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x00005876                malloc
+                0x000059d0                free
  .text.avr-libc
-                0x000054f6       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x000054f6                memcpy
+                0x00005a80       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                0x00005a80                strlen_P
  .text.avr-libc
-                0x00005508        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
-                0x00005508                memset
+                0x00005a92       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x00005a92                memcpy
  .text.avr-libc
-                0x00005516       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
-                0x00005516                strlen
+                0x00005aa4        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x00005aa4                memset
  .text.avr-libc
-                0x00005528       0x4e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vsnprintf_p.o)
-                0x00005528                vsnprintf_P
+                0x00005ab2       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+                0x00005ab2                strlen
  .text.avr-libc
-                0x00005576      0x39c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00005576                vfprintf
+                0x00005ac4       0x4e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vsnprintf_p.o)
+                0x00005ac4                vsnprintf_P
  .text.avr-libc
-                0x00005912       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00005912                strnlen_P
+                0x00005b12      0x39c c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00005b12                vfprintf
  .text.avr-libc
-                0x00005928       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00005928                strnlen
+                0x00005eae       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00005eae                strnlen_P
  .text.avr-libc
-                0x0000593e       0x58 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x0000593e                fputc
+                0x00005ec4       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00005ec4                strnlen
  .text.avr-libc
-                0x00005996       0xbc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00005996                __ultoa_invert
-                0x00005a52                . = ALIGN (0x2)
+                0x00005eda       0x58 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00005eda                fputc
+ .text.avr-libc
+                0x00005f32       0xbc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00005f32                __ultoa_invert
+                0x00005fee                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00005a52        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00005a52                exit
-                0x00005a52                _exit
+ .fini9         0x00005fee        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00005fee                exit
+                0x00005fee                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1094,139 +1096,144 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00005a52        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00005fee        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00005a56                _etext = .
+                0x00005ff2                _etext = .
 
-.data           0x00800060       0x9e load address 0x00005a56
+.data           0x00800060       0xce load address 0x00005ff2
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
- .data          0x00800060       0x2b ./main.o
- .data          0x0080008b        0x5 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
- .data          0x00800090        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x00800090                __thenan_sf
+ .data          0x00800060       0x42 ./main.o
+ .data          0x008000a2        0x5 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+ .data          0x008000a7        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x008000a7                __thenan_sf
+ .data          0x008000af        0x6 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x008000b1                __malloc_heap_start
+                0x008000b3                __malloc_heap_end
+                0x008000af                __malloc_margin
  *(.data*)
- .data._ZZ4mainE14SENSOR_MGR_CFG
-                0x00800098        0x5 ./main.o
  .data.xFreeBytesRemaining
-                0x0080009d        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                0x008000b5        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
  *(.rodata)
  *(.rodata*)
+ .rodata._ZTVN7drivers7sensors9DhtTalkerE
+                0x008000b7        0x8 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                0x008000b7                vtable for drivers::sensors::DhtTalker
+ .rodata._ZTVN7drivers7sensors18TempHumiditySensorE
+                0x008000bf        0xe ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                0x008000bf                vtable for drivers::sensors::TempHumiditySensor
  .rodata._ZTVN7drivers7sensors10DustSensorE
-                0x0080009f        0xe ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                0x0080009f                vtable for drivers::sensors::DustSensor
- .rodata._ZZN7drivers7sensors10DustSensorC1ERKNS0_7ISensor13ConfigurationEE3C.7
-                0x008000ad        0x3 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x008000cd        0xe ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                0x008000cd                vtable for drivers::sensors::DustSensor
  .rodata._ZTVN7drivers7sensors7ISensorE
-                0x008000b0        0xe ./drivers/sensors/ISensor.o
-                0x008000b0                vtable for drivers::sensors::ISensor
+                0x008000db        0xe ./drivers/sensors/ISensor.o
+                0x008000db                vtable for drivers::sensors::ISensor
  .rodata._ZTVN2OS5Tasks15MeasurementTaskE
-                0x008000be        0xa ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x008000be                vtable for OS::Tasks::MeasurementTask
+                0x008000e9        0xa ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x008000e9                vtable for OS::Tasks::MeasurementTask
  .rodata._ZTV9TaskClass
-                0x008000c8        0xa ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x008000c8                vtable for TaskClass
+                0x008000f3        0xa ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x008000f3                vtable for TaskClass
  .rodata._ZTV4Task
-                0x008000d2        0x8 ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                0x008000d2                vtable for Task
+                0x008000fd        0x8 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                0x008000fd                vtable for Task
  .rodata._ZTVN2OS5Tasks9BlinkTaskE
-                0x008000da        0xa ./OS/Tasks/BlinkTask/BlinkTask.o
-                0x008000da                vtable for OS::Tasks::BlinkTask
+                0x00800105        0xa ./OS/Tasks/BlinkTask/BlinkTask.o
+                0x00800105                vtable for OS::Tasks::BlinkTask
  .rodata._ZTVN11Application16SensorManagement13SensorManagerE
-                0x008000e4        0x8 ./Application/SensorManagement/SensorManager.o
-                0x008000e4                vtable for Application::SensorManagement::SensorManager
+                0x0080010f        0x8 ./Application/SensorManagement/SensorManager.o
+                0x0080010f                vtable for Application::SensorManagement::SensorManager
  .rodata._ZZN11Application16SensorManagement13SensorManagerC1ERKNS1_19SensorConfigurationEE3C.7
-                0x008000ec        0x3 ./Application/SensorManagement/SensorManager.o
- .rodata.BlinkTaskCfg.3453
-                0x008000ef        0x7 ./main.o
+                0x00800117        0x3 ./Application/SensorManagement/SensorManager.o
+ .rodata.BlinkTaskCfg.3491
+                0x0080011a        0x7 ./main.o
+ .rodata._ZZ4mainE3C.9
+                0x00800121        0x5 ./main.o
  .rodata._ZZ4mainE3C.8
-                0x008000f6        0x5 ./main.o
+                0x00800126        0x5 ./main.o
  .rodata.heapSTRUCT_SIZE
-                0x008000fb        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                0x0080012b        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
  *(.gnu.linkonce.d*)
-                0x008000fe                . = ALIGN (0x2)
- *fill*         0x008000fd        0x1 00
-                0x008000fe                _edata = .
-                0x008000fe                PROVIDE (__data_end, .)
+                0x0080012e                . = ALIGN (0x2)
+ *fill*         0x0080012d        0x1 00
+                0x0080012e                _edata = .
+                0x0080012e                PROVIDE (__data_end, .)
 
-.bss            0x008000fe      0x6af
-                0x008000fe                PROVIDE (__bss_start, .)
+.bss            0x0080012e      0x507
+                0x0080012e                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.xConsoleMutex
-                0x008000fe        0x2 ./Configuration/Globals.o
-                0x008000fe                xConsoleMutex
+                0x0080012e        0x2 ./Configuration/Globals.o
+                0x0080012e                xConsoleMutex
  .bss.xSerialPort
-                0x00800100       0x22 ./Configuration/Globals.o
-                0x00800100                xSerialPort
- .bss._ZGVZ4mainE14SENSOR_MGR_CFG
-                0x00800122        0x8 ./main.o
- .bss._ZGVZ4mainE10SENSOR_MGR
-                0x0080012a        0x8 ./main.o
- .bss._ZZ4mainE10SENSOR_MGR
-                0x00800132        0xc ./main.o
+                0x00800130       0x22 ./Configuration/Globals.o
+                0x00800130                xSerialPort
  .bss.xHeapHasBeenInitialised.1586
-                0x0080013e        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
- .bss.ucHeap    0x0080013f      0x5fa G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
- .bss.xStart    0x00800739        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
- .bss.xEnd      0x0080073d        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                0x00800152        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+ .bss.ucHeap    0x00800153      0x46a G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+ .bss.xStart    0x008005bd        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+ .bss.xEnd      0x008005c1        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
  .bss.pxCurrentTCB
-                0x00800741        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                0x00800741                pxCurrentTCB
+                0x008005c5        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005c5                pxCurrentTCB
  .bss.uxTasksDeleted
-                0x00800743        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005c7        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.uxCurrentNumberOfTasks
-                0x00800744        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005c8        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xTickCount
-                0x00800745        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005c9        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.uxTopReadyPriority
-                0x00800747        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005cb        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xSchedulerRunning
-                0x00800748        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005cc        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.uxPendedTicks
-                0x00800749        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005cd        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xYieldPending
-                0x0080074a        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005ce        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xNumOfOverflows
-                0x0080074b        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005cf        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.uxTaskNumber
-                0x0080074c        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005d0        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xNextTaskUnblockTime
-                0x0080074d        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005d1        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.uxSchedulerSuspended
-                0x0080074f        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005d3        0x1 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.pxReadyTasksLists
-                0x00800750       0x24 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005d4       0x24 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xDelayedTaskList1
-                0x00800774        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x008005f8        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xDelayedTaskList2
-                0x0080077d        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00800601        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.pxDelayedTaskList
-                0x00800786        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0080060a        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.pxOverflowDelayedTaskList
-                0x00800788        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0080060c        0x2 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xPendingReadyList
-                0x0080078a        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x0080060e        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xTasksWaitingTermination
-                0x00800793        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00800617        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  .bss.xSuspendedTaskList
-                0x0080079c        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                0x00800620        0x9 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
  *(COMMON)
- COMMON         0x008007a5        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-                0x008007a5                portTickRateHz
-                0x008007a7                ticksRemainingInSec
- COMMON         0x008007a9        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
-                0x008007a9                __system_time
-                0x008007ad                PROVIDE (__bss_end, .)
-                0x00005a56                __data_load_start = LOADADDR (.data)
-                0x00005af4                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800629        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+                0x00800629                portTickRateHz
+                0x0080062b                ticksRemainingInSec
+ COMMON         0x0080062d        0x4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
+                0x0080062d                __system_time
+ COMMON         0x00800631        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x00800631                __brkval
+                0x00800633                __flp
+                0x00800635                PROVIDE (__bss_end, .)
+                0x00005ff2                __data_load_start = LOADADDR (.data)
+                0x000060c0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008007ad        0x0
-                0x008007ad                PROVIDE (__noinit_start, .)
+.noinit         0x00800635        0x0
+                0x00800635                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008007ad                PROVIDE (__noinit_end, .)
-                0x008007ad                _end = .
-                0x008007ad                PROVIDE (__heap_start, .)
+                0x00800635                PROVIDE (__noinit_end, .)
+                0x00800635                _end = .
+                0x00800635                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1244,48 +1251,46 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0xa8fc
+.stab           0x00000000     0xaa4c
  *(.stab)
- .stab          0x00000000      0x774 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
-                               0x1224 (size before relaxing)
- .stab          0x00000774      0x7bc ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
-                                0xa74 (size before relaxing)
- .stab          0x00000f30      0xfc0 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                               0x1050 (size before relaxing)
- .stab          0x00001ef0      0x534 ./drivers/sensors/ISensor.o
+ .stab          0x00000000      0x8b8 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                               0x11f4 (size before relaxing)
+ .stab          0x000008b8      0x9c0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                                0xa5c (size before relaxing)
+ .stab          0x00001278      0xf78 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                               0x1008 (size before relaxing)
+ .stab          0x000021f0      0x570 ./drivers/sensors/ISensor.o
                                 0x5c4 (size before relaxing)
- .stab          0x00002424      0xd5c ./OS/Tasks/MeasurementTask/MeasurementTask.o
+ .stab          0x00002760      0xd5c ./OS/Tasks/MeasurementTask/MeasurementTask.o
                                 0xe28 (size before relaxing)
- .stab          0x00003180      0xbdc ./OS/Tasks/BlinkTask/BlinkTask.o
+ .stab          0x000034bc      0xbdc ./OS/Tasks/BlinkTask/BlinkTask.o
                                 0xc84 (size before relaxing)
- .stab          0x00003d5c      0x7d4 ./Configuration/Globals.o
+ .stab          0x00004098      0x774 ./Configuration/Globals.o
                                 0x918 (size before relaxing)
- .stab          0x00004530      0xb7c ./Application/SensorManagement/SensorManager.o
+ .stab          0x0000480c      0xb7c ./Application/SensorManagement/SensorManager.o
                                 0xc3c (size before relaxing)
- .stab          0x000050ac      0xa20 ./main.o
-                                0xa74 (size before relaxing)
- .stab          0x00005acc      0x3e4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
-                                0x3f0 (size before relaxing)
- .stab          0x00005eb0     0x1110 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+ .stab          0x00005388      0xa44 ./main.o
+                                0xa50 (size before relaxing)
+ .stab          0x00005dcc     0x1290 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
                                0x2ad8 (size before relaxing)
- .stab          0x00006fc0      0x6b4 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+ .stab          0x0000705c      0x708 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
                                 0x990 (size before relaxing)
- .stab          0x00007674      0xa44 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+ .stab          0x00007764      0xa44 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
                                0x1d58 (size before relaxing)
- .stab          0x000080b8     0x1728 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+ .stab          0x000081a8     0x1728 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
                                0x2eb0 (size before relaxing)
- .stab          0x000097e0      0x87c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+ .stab          0x000098d0      0x8dc G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
                                 0xcd8 (size before relaxing)
- .stab          0x0000a05c      0x120 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
+ .stab          0x0000a1ac      0x120 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
                                 0x360 (size before relaxing)
- .stab          0x0000a17c      0x30c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
+ .stab          0x0000a2cc      0x30c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
                                 0x768 (size before relaxing)
- .stab          0x0000a488      0x474 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+ .stab          0x0000a5d8      0x474 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
                                 0x780 (size before relaxing)
 
-.stabstr        0x00000000     0x9f7d
+.stabstr        0x00000000     0x9dfc
  *(.stabstr)
- .stabstr       0x00000000     0x9f7d ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+ .stabstr       0x00000000     0x9dfc ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 
 .stab.excl
  *(.stab.excl)
@@ -1488,18 +1493,18 @@ Application::SensorManagement::SensorManager::printResultsStdOut() ./Application
 Application::SensorManagement::SensorManager::run() ./Application/SensorManagement/SensorManager.o
                                                   ./OS/Tasks/MeasurementTask/MeasurementTask.o
 Application::SensorManagement::SensorManager::~SensorManager() ./Application/SensorManagement/SensorManager.o
+Application::SensorManagement::SensorManager::~SensorManager() ./Application/SensorManagement/SensorManager.o
+Application::SensorManagement::SensorManager::~SensorManager() ./Application/SensorManagement/SensorManager.o
                                                   ./main.o
                                                   ./OS/Tasks/MeasurementTask/MeasurementTask.o
-Application::SensorManagement::SensorManager::~SensorManager() ./Application/SensorManagement/SensorManager.o
-Application::SensorManagement::SensorManager::~SensorManager() ./Application/SensorManagement/SensorManager.o
+OS::Tasks::BlinkTask::BlinkTask(OS::Tasks::BlinkTask::TaskConfiguration const&) ./OS/Tasks/BlinkTask/BlinkTask.o
 OS::Tasks::BlinkTask::BlinkTask(OS::Tasks::BlinkTask::TaskConfiguration const&) ./OS/Tasks/BlinkTask/BlinkTask.o
                                                   ./main.o
-OS::Tasks::BlinkTask::BlinkTask(OS::Tasks::BlinkTask::TaskConfiguration const&) ./OS/Tasks/BlinkTask/BlinkTask.o
 OS::Tasks::BlinkTask::task()                      ./OS/Tasks/BlinkTask/BlinkTask.o
 OS::Tasks::BlinkTask::~BlinkTask()                ./OS/Tasks/BlinkTask/BlinkTask.o
 OS::Tasks::BlinkTask::~BlinkTask()                ./OS/Tasks/BlinkTask/BlinkTask.o
-OS::Tasks::BlinkTask::~BlinkTask()                ./OS/Tasks/BlinkTask/BlinkTask.o
                                                   ./main.o
+OS::Tasks::BlinkTask::~BlinkTask()                ./OS/Tasks/BlinkTask/BlinkTask.o
 OS::Tasks::MeasurementTask::MeasurementTask(OS::Tasks::MeasurementTask::TaskConfiguration const&) ./OS/Tasks/MeasurementTask/MeasurementTask.o
                                                   ./main.o
 OS::Tasks::MeasurementTask::MeasurementTask(OS::Tasks::MeasurementTask::TaskConfiguration const&) ./OS/Tasks/MeasurementTask/MeasurementTask.o
@@ -1507,8 +1512,8 @@ OS::Tasks::MeasurementTask::TaskConfiguration::TaskConfiguration(OS::Tasks::Meas
 OS::Tasks::MeasurementTask::TaskConfiguration::~TaskConfiguration() ./OS/Tasks/MeasurementTask/MeasurementTask.o
 OS::Tasks::MeasurementTask::task()                ./OS/Tasks/MeasurementTask/MeasurementTask.o
 OS::Tasks::MeasurementTask::~MeasurementTask()    ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                                                  ./main.o
 OS::Tasks::MeasurementTask::~MeasurementTask()    ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                                                  ./main.o
 OS::Tasks::MeasurementTask::~MeasurementTask()    ./OS/Tasks/MeasurementTask/MeasurementTask.o
 Task::Task(char const*, void (*)(void*), TaskPriority, unsigned int, void*) ./OS/Tasks/MeasurementTask/MeasurementTask.o
 Task::~Task()                                     ./OS/Tasks/MeasurementTask/MeasurementTask.o
@@ -1521,15 +1526,14 @@ TaskClass::~TaskClass()                           ./OS/Tasks/MeasurementTask/Mea
 TaskClass::~TaskClass()                           ./OS/Tasks/MeasurementTask/MeasurementTask.o
 __addsf3                                          c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
 __bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+__brkval                                          c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
 __bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
 __bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
 __cxa_atexit                                      ./Configuration/Globals.o
 __cxa_finalize                                    ./Configuration/Globals.o
 __cxa_guard_abort                                 ./Configuration/Globals.o
 __cxa_guard_acquire                               ./Configuration/Globals.o
-                                                  ./main.o
 __cxa_guard_release                               ./Configuration/Globals.o
-                                                  ./main.o
 __cxa_pure_virtual                                ./Configuration/Globals.o
                                                   ./OS/Tasks/BlinkTask/BlinkTask.o
                                                   ./OS/Tasks/MeasurementTask/MeasurementTask.o
@@ -1541,14 +1545,15 @@ __divsf3                                          c:/winavr-20100110/bin/../lib/
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 __do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                                                  ./main.o
                                                   ./Configuration/Globals.o
 __do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
@@ -1578,7 +1583,6 @@ __epilogue_restores__                             c:/winavr-20100110/bin/../lib/
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                                                  G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
                                                   ./main.o
                                                   ./Application/SensorManagement/SensorManager.o
                                                   ./Configuration/Globals.o
@@ -1595,6 +1599,7 @@ __fixunssfsi                                      c:/winavr-20100110/bin/../lib/
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+__flp                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
 __fpcmp_parts_f                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
@@ -1607,12 +1612,17 @@ __gtsf2                                           c:/winavr-20100110/bin/../lib/
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 __heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__heap_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
 __init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __ltsf2                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+__malloc_heap_end                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__malloc_heap_start                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__malloc_margin                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
 __mulsf3                                          c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
@@ -1642,7 +1652,6 @@ __prologue_saves__                                c:/winavr-20100110/bin/../lib/
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                                                  G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
                                                   ./main.o
                                                   ./Application/SensorManagement/SensorManager.o
                                                   ./Configuration/Globals.o
@@ -1657,7 +1666,6 @@ __subsf3                                          c:/winavr-20100110/bin/../lib/
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
 __system_time                                     G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_tick.o)
-                                                  G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
 __thenan_sf                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
@@ -1704,8 +1712,6 @@ __vector_9                                        c:/winavr-20100110/bin/../lib/
 __vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 __vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 _exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-atexit                                            ./main.o
-atexit(void (*)())                                ./main.o
 avrSerialCheckRxComplete                          G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
 avrSerialCheckTxReady                             G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
 avrSerialPrint                                    G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
@@ -1724,8 +1730,9 @@ avrSerialxPrintf                                  G:/3_PROGRAMOWANIE/8_C_AVR_Emb
 avrSerialxPrintf_P                                G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
 avrSerialxRead                                    G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
 avrSerialxWrite                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-drivers::sensors::DhtTalker::DhtTalker(drivers::sensors::DhtTalker::Configuration const&) ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
-drivers::sensors::DhtTalker::DhtTalker(drivers::sensors::DhtTalker::Configuration const&) ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+drivers::sensors::DhtTalker::DhtTalker()          ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+drivers::sensors::DhtTalker::DhtTalker()          ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+                                                  ./main.o
 drivers::sensors::DhtTalker::getPulseDuration(drivers::sensors::DhtTalker::VoltagePulseType) ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 drivers::sensors::DhtTalker::getReceivedData()    ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
                                                   ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
@@ -1742,9 +1749,10 @@ drivers::sensors::DhtTalker::stateReceivingData() ./drivers/sensors/tempHumidity
 drivers::sensors::DhtTalker::~DhtTalker()         ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 drivers::sensors::DhtTalker::~DhtTalker()         ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 drivers::sensors::DhtTalker::~DhtTalker()         ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
-drivers::sensors::DustSensor::DustSensor(drivers::sensors::ISensor::Configuration const&) ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                                                  ./main.o
 drivers::sensors::DustSensor::DustSensor(drivers::sensors::ISensor::Configuration const&) ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./main.o
+drivers::sensors::DustSensor::DustSensor(drivers::sensors::ISensor::Configuration const&) ./drivers/sensors/DustSharpGp2y10/DustSensor.o
 drivers::sensors::DustSensor::clearLED()          ./drivers/sensors/DustSharpGp2y10/DustSensor.o
 drivers::sensors::DustSensor::doDustCalculation() ./drivers/sensors/DustSharpGp2y10/DustSensor.o
 drivers::sensors::DustSensor::doErrorStatusPrint() ./drivers/sensors/DustSharpGp2y10/DustSensor.o
@@ -1757,13 +1765,13 @@ drivers::sensors::DustSensor::readAdcValue()      ./drivers/sensors/DustSharpGp2
 drivers::sensors::DustSensor::run()               ./drivers/sensors/DustSharpGp2y10/DustSensor.o
 drivers::sensors::DustSensor::setLED()            ./drivers/sensors/DustSharpGp2y10/DustSensor.o
 drivers::sensors::DustSensor::~DustSensor()       ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-drivers::sensors::DustSensor::~DustSensor()       ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-drivers::sensors::DustSensor::~DustSensor()       ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./main.o
-drivers::sensors::ISensor::ISensor(drivers::sensors::ISensor::Configuration const&) ./drivers/sensors/ISensor.o
+drivers::sensors::DustSensor::~DustSensor()       ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+drivers::sensors::DustSensor::~DustSensor()       ./drivers/sensors/DustSharpGp2y10/DustSensor.o
 drivers::sensors::ISensor::ISensor(drivers::sensors::ISensor::Configuration const&) ./drivers/sensors/ISensor.o
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+drivers::sensors::ISensor::ISensor(drivers::sensors::ISensor::Configuration const&) ./drivers/sensors/ISensor.o
 drivers::sensors::ISensor::getDescription() const ./drivers/sensors/ISensor.o
                                                   ./Application/SensorManagement/SensorManager.o
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
@@ -1775,24 +1783,30 @@ drivers::sensors::ISensor::getSensorUnits() const ./drivers/sensors/ISensor.o
 drivers::sensors::ISensor::initialize()           ./drivers/sensors/ISensor.o
 drivers::sensors::ISensor::run()                  ./drivers/sensors/ISensor.o
 drivers::sensors::ISensor::~ISensor()             ./drivers/sensors/ISensor.o
+drivers::sensors::ISensor::~ISensor()             ./drivers/sensors/ISensor.o
+drivers::sensors::ISensor::~ISensor()             ./drivers/sensors/ISensor.o
                                                   ./drivers/sensors/DustSharpGp2y10/DustSensor.o
                                                   ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
-drivers::sensors::ISensor::~ISensor()             ./drivers/sensors/ISensor.o
-drivers::sensors::ISensor::~ISensor()             ./drivers/sensors/ISensor.o
 drivers::sensors::TempHumiditySensor::TempHumiditySensor(drivers::sensors::TempHumiditySensor::DhtConfiguartion const&) ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
 drivers::sensors::TempHumiditySensor::TempHumiditySensor(drivers::sensors::TempHumiditySensor::DhtConfiguartion const&) ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                                                  ./main.o
 drivers::sensors::TempHumiditySensor::getResult() ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
 drivers::sensors::TempHumiditySensor::initialize() ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
 drivers::sensors::TempHumiditySensor::run()       ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
 drivers::sensors::TempHumiditySensor::~TempHumiditySensor() ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                                                  ./main.o
 drivers::sensors::TempHumiditySensor::~TempHumiditySensor() ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
 drivers::sensors::TempHumiditySensor::~TempHumiditySensor() ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
 exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 fputc                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+free                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                                                  ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 main                                              ./main.o
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+malloc                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                                                  ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 memcpy                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
 memset                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
@@ -1830,8 +1844,6 @@ strnlen_P                                         c:/winavr-20100110/bin/../lib/
 system_tick                                       G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_tick.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
 ticksRemainingInSec                               G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
-time                                              G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(time.o)
-                                                  ./OS/Tasks/BlinkTask/BlinkTask.o
 ulTaskNotifyTake                                  G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
 uxListRemove                                      G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
                                                   G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)

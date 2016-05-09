@@ -34,6 +34,7 @@ class DustSensor : public ISensor
 	#define PRE_SAMPLING_TIMEOUT_US 	280.0f
 	#define POST_SAMPLING_TIMEOUT_US 	40.0f
 	#define SLEEP_TIMEOUT_US 			9680.0f
+	#define MEAS_TICK_TIMEOUT			(10 / portTICK_PERIOD_MS)
 
 	/**
 	 * \CTOR

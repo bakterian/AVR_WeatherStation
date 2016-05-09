@@ -54,6 +54,12 @@ endif
 LSS += \
 AvrWeatherStation.lss \
 
+FLASH_IMAGE += \
+AvrWeatherStation.hex \
+
+EEPROM_IMAGE += \
+AvrWeatherStation.eep \
+
 SIZEDUMMY += \
 sizedummy \
 
@@ -75,6 +81,18 @@ AvrWeatherStation.lss: AvrWeatherStation.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+AvrWeatherStation.hex: AvrWeatherStation.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex AvrWeatherStation.elf  "AvrWeatherStation.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+AvrWeatherStation.eep: AvrWeatherStation.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex AvrWeatherStation.elf  "AvrWeatherStation.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: AvrWeatherStation.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega32 AvrWeatherStation.elf
@@ -83,10 +101,10 @@ sizedummy: AvrWeatherStation.elf
 
 # Other Targets
 clean:
-	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(LSS)$(C_DEPS)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) AvrWeatherStation.elf
+	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(LSS)$(C_DEPS)$(FLASH_IMAGE)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) AvrWeatherStation.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

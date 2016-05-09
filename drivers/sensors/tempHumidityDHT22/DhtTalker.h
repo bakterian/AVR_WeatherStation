@@ -19,8 +19,8 @@ class DhtTalker
 {
 public:
 	#define DATA_BUFFER_SIZE 				5U
-	#define VOLTAGE_PULSE_COUNT 			80U
-	#define MAX_PULSE_COUNT					0xFFFFFFFFU
+	#define VOLTAGE_PULSE_COUNT 			80
+	#define MAX_PULSE_COUNT					0xFFFFFFFAU
 	#define	PULSE_COUNT_TIMEDOUT			0U
 
 	#define TALKER_PIN						PB1
@@ -29,13 +29,15 @@ public:
 
 	#define TIMEOUT_AFTER_HANDSHAKE_US		40U
 	#define TIMEOUT_BEFORE_READ_US			10U
-	#define TIMEOUT_READ_START_US			80U
+	#define TIMEOUT_READ_START_US			80
+	#define	TICK_TIMEOUT_LAST_MEAS			(2000 / portTICK_PERIOD_MS)
+	#define TICK_TIMEOUT_INIT_LOW_STATE		(20 / portTICK_PERIOD_MS)
 
 	#define STATE_IDLE						0U
 	#define STATE_PRE_INIT					1U
 	#define STATE_RECEIVING_DATA			3U
 	#define STATE_EVALUATING_DATA			4U
-	#define STATE_ERRORS					5U
+	#define STATE_ERRORS					5
 
 	enum VoltagePulseType
 	{
@@ -43,16 +45,10 @@ public:
 		eHigh
 	};
 
-	struct Configuration
-	{
-		TickType_t 		sLastMeasTimeout;				//tick count which needs to pass from last result read
-		TickType_t 		sInitialLowStateTimeout;		//tick count which needs to pass in order to reach proper low pin state
-	};
-
 	/**
 	 * \CTOR
 	 */
-	DhtTalker(const Configuration& rConfig);
+	DhtTalker();
 
 	/**
 	 * \DTOR
@@ -129,6 +125,7 @@ private:
 	 */
 	uint32_t getPulseDuration(VoltagePulseType ePulseType);
 
+
 	struct TalkerStateEntry
 	{
 		uint8_t 	u8InternalStateId;
@@ -137,13 +134,14 @@ private:
 
 	static const TalkerStateEntry 	m_sTalkerStateMap[];
 
-	uint32_t 				m_au32PulseContainer[VOLTAGE_PULSE_COUNT];
+	uint32_t* 				m_pa32PulseContainer;
 	uint8_t 				m_au8DataBuffer[DATA_BUFFER_SIZE];
 	uint8_t					m_u8TalkerState;
 	uint8_t					m_u8NewTalkerState;
 	TimeOut_t				m_sMeasFinishedTimestamp;
 	TimeOut_t				m_sHandshakeStartTimestamp;
-	Configuration			m_sConfig;
+	TickType_t 				m_sLastMeasTimeout;				//tick count which needs to pass from last result read
+	TickType_t 				m_sInitialLowStateTimeout;		//tick count which needs to pass in order to reach proper low pin state
 };
 
 } /* namespace sensors */

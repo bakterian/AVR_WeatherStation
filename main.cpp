@@ -45,6 +45,24 @@
 		::drivers::sensors::DustSensor DUST_SENSOR(DUST_SENSOR_CFG);
 		/* -------------------------------------------------------------- */
 
+		/* ----------------------  HUMIDITY SENSOR ---------------------- */
+		::drivers::sensors::DhtTalker DHT_TALKER;
+
+		::drivers::sensors::TempHumiditySensor::DhtMeasurmentData DHT_MEAS_DATA = { 0U, 0U, 0U};
+
+
+		::drivers::sensors::TempHumiditySensor::DhtConfiguartion HUMIDITY_SENSOR_CFG =
+		{
+			0,
+			DHT_MEAS_DATA,
+			{
+				(const uint8_t*) "HumiditySensor",	 	/* sensor description  */
+				(const uint8_t*) "proc RH",		   	   /*  sensor units	      */
+				::drivers::sensors::eHumiditySensor   /*   sensor type	     */
+			}
+		};
+
+		::drivers::sensors::TempHumiditySensor HUMIDITY_SENSOR(HUMIDITY_SENSOR_CFG);
 		/* -------------------------------------------------------------- */
 
 

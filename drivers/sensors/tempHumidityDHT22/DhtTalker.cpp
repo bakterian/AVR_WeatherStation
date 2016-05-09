@@ -12,6 +12,7 @@ namespace drivers
 {
 namespace sensors
 {
+
 	const DhtTalker::TalkerStateEntry DhtTalker::m_sTalkerStateMap[] =
 	{
 		{STATE_IDLE, 				&DhtTalker::stateIdle				},
@@ -21,25 +22,26 @@ namespace sensors
 		{STATE_ERRORS, 				&DhtTalker::stateError				}
 	};
 
-	DhtTalker::DhtTalker(const Configuration& rConfig) :
+	DhtTalker::DhtTalker() :
 		m_u8TalkerState(STATE_IDLE),
 		m_u8NewTalkerState(STATE_IDLE),
-		m_sMeasFinishedTimestamp(),
-		m_sHandshakeStartTimestamp(),
-		m_sConfig(rConfig)
+		m_sLastMeasTimeout(TICK_TIMEOUT_LAST_MEAS),
+		m_sInitialLowStateTimeout(TICK_TIMEOUT_INIT_LOW_STATE)
 	{
-		memset(&m_au32PulseContainer,0x00U,VOLTAGE_PULSE_COUNT*sizeof(uint32_t));
+	    m_pa32PulseContainer = (uint32_t*)malloc(80*sizeof(uint32_t));
+
 		memset(&m_au8DataBuffer,0x00U,DATA_BUFFER_SIZE);
 	}
 
 	DhtTalker::~DhtTalker()
 	{
-
+		free(m_pa32PulseContainer);
 	}
 
 	uint8_t* DhtTalker::getReceivedData()
 	{
-		return &m_au8DataBuffer[0];
+		//return &m_au8DataBuffer[0];
+		return 0;
 	}
 
 	uint8_t DhtTalker::getTalkerState()
@@ -52,8 +54,6 @@ namespace sensors
 		TALKER_DDR 	&= ~(1 << TALKER_PIN);	// setting talker pin as input
 		TALKER_PORT	|=  (1 << TALKER_PIN);	// using the internal pull-up
 
-		vTaskSetTimeOutState(&m_sMeasFinishedTimestamp);
-
 		m_u8NewTalkerState = STATE_PRE_INIT;
 
 		return (ET_OK);
@@ -61,9 +61,9 @@ namespace sensors
 
 	ERRORTYPE DhtTalker::run()
 	{
-		ERRORTYPE eRet = ((*this).*DhtTalker::m_sTalkerStateMap[m_u8NewTalkerState].fptrStateHandler)();
+		//ERRORTYPE eRet = ((*this).*DhtTalker::m_sTalkerStateMap[m_u8NewTalkerState].fptrStateHandler)();
 
-		return (eRet);
+		return (ET_OK);
 	}
 
 	ERRORTYPE DhtTalker::stateIdle()
@@ -82,12 +82,13 @@ namespace sensors
 		// is this the first state entry?
 		if(m_u8NewTalkerState != m_u8TalkerState)
 		{
-			vTaskSetTimeOutState(&m_sHandshakeStartTimestamp);
+			vTaskSetTimeOutState(&m_sMeasFinishedTimestamp);
+			m_sLastMeasTimeout = TICK_TIMEOUT_LAST_MEAS;
 			m_u8TalkerState = m_u8NewTalkerState;
 		}
 		else
 		{
-			if( pdTRUE == xTaskCheckForTimeOut(&m_sMeasFinishedTimestamp, &m_sConfig.sLastMeasTimeout))
+			if( pdTRUE == xTaskCheckForTimeOut(&m_sMeasFinishedTimestamp, &m_sLastMeasTimeout) )
 			{//timeout elapsed new serial read can be started
 				m_u8NewTalkerState = STATE_RECEIVING_DATA;
 			}
@@ -106,11 +107,12 @@ namespace sensors
 			TALKER_PORT	&=  ~(1 << TALKER_PIN);	// talker output pin should stay low
 
 			vTaskSetTimeOutState(&m_sHandshakeStartTimestamp);
+			m_sInitialLowStateTimeout = TICK_TIMEOUT_INIT_LOW_STATE;
 			m_u8TalkerState = m_u8NewTalkerState;
 		}
 		else
 		{
-			if( pdTRUE == xTaskCheckForTimeOut(&m_sHandshakeStartTimestamp, &m_sConfig.sInitialLowStateTimeout))
+			if( pdTRUE == xTaskCheckForTimeOut(&m_sHandshakeStartTimestamp, &m_sInitialLowStateTimeout))
 			{//initial low signal has be on for long enough for the DHT to notice it
 
 				taskENTER_CRITICAL();
@@ -143,10 +145,12 @@ namespace sensors
 			        // high pulse is ~28 microseconds then it's a 0 and if it's ~70 microseconds
 			        // then it's a 1.
 
+
+			    	// TODO: do the evaluation earlier!!! and save 320 bytes of ram
 			        for (uint8_t u8Loop = 0 ; u8Loop < VOLTAGE_PULSE_COUNT ; u8Loop+=2)
 			        {
-			        	m_au32PulseContainer[u8Loop]    = getPulseDuration(eLow);
-			        	m_au32PulseContainer[u8Loop+1U] = getPulseDuration(eHigh);
+			        	m_pa32PulseContainer[u8Loop]    = getPulseDuration(eLow);
+			        	m_pa32PulseContainer[u8Loop+1U] = getPulseDuration(eHigh);
 			        }
 			    }
 
@@ -185,8 +189,8 @@ namespace sensors
 		  // state cycle count), or 1 (high state cycle count > low state cycle count).
 		  for (uint8_t u8Loop = 0 ; u8Loop < (VOLTAGE_PULSE_COUNT/2) ; ++u8Loop)
 		  {
-			uint32_t u32lowCycles  = m_au32PulseContainer[2*u8Loop];
-			uint32_t u32HighCycles = m_au32PulseContainer[(2*u8Loop)+1];
+			uint32_t u32lowCycles  = m_pa32PulseContainer[2*u8Loop];
+			uint32_t u32HighCycles = m_pa32PulseContainer[(2*u8Loop)+1];
 
 			if ((u32lowCycles == PULSE_COUNT_TIMEDOUT) || (u32HighCycles == PULSE_COUNT_TIMEDOUT))
 			{
