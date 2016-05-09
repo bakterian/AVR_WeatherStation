@@ -1251,46 +1251,46 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0xaa4c
+.stab           0x00000000     0xa458
  *(.stab)
  .stab          0x00000000      0x8b8 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
-                               0x11f4 (size before relaxing)
- .stab          0x000008b8      0x9c0 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
-                                0xa5c (size before relaxing)
- .stab          0x00001278      0xf78 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
-                               0x1008 (size before relaxing)
- .stab          0x000021f0      0x570 ./drivers/sensors/ISensor.o
+                               0x10c8 (size before relaxing)
+ .stab          0x000008b8      0x990 ./drivers/sensors/tempHumidityDHT22/TempHumiditySensor.o
+                                0xa2c (size before relaxing)
+ .stab          0x00001248      0xee8 ./drivers/sensors/DustSharpGp2y10/DustSensor.o
+                                0xf78 (size before relaxing)
+ .stab          0x00002130      0x570 ./drivers/sensors/ISensor.o
                                 0x5c4 (size before relaxing)
- .stab          0x00002760      0xd5c ./OS/Tasks/MeasurementTask/MeasurementTask.o
-                                0xe28 (size before relaxing)
- .stab          0x000034bc      0xbdc ./OS/Tasks/BlinkTask/BlinkTask.o
-                                0xc84 (size before relaxing)
- .stab          0x00004098      0x774 ./Configuration/Globals.o
-                                0x918 (size before relaxing)
- .stab          0x0000480c      0xb7c ./Application/SensorManagement/SensorManager.o
+ .stab          0x000026a0      0xca8 ./OS/Tasks/MeasurementTask/MeasurementTask.o
+                                0xd74 (size before relaxing)
+ .stab          0x00003348      0xb94 ./OS/Tasks/BlinkTask/BlinkTask.o
                                 0xc3c (size before relaxing)
- .stab          0x00005388      0xa44 ./main.o
-                                0xa50 (size before relaxing)
- .stab          0x00005dcc     0x1290 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
-                               0x2ad8 (size before relaxing)
- .stab          0x0000705c      0x708 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
-                                0x990 (size before relaxing)
- .stab          0x00007764      0xa44 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
+ .stab          0x00003edc      0x774 ./Configuration/Globals.o
+                                0x8f4 (size before relaxing)
+ .stab          0x00004650      0xa14 ./Application/SensorManagement/SensorManager.o
+                                0xad4 (size before relaxing)
+ .stab          0x00005064      0x96c ./main.o
+                                0x978 (size before relaxing)
+ .stab          0x000059d0     0x1218 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(serial.o)
+                               0x29d0 (size before relaxing)
+ .stab          0x00006be8      0x6a8 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(heap_2.o)
+                                0x930 (size before relaxing)
+ .stab          0x00007290      0xa44 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(queue.o)
                                0x1d58 (size before relaxing)
- .stab          0x000081a8     0x1728 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
-                               0x2eb0 (size before relaxing)
- .stab          0x000098d0      0x8dc G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
+ .stab          0x00007cd4     0x1608 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(tasks.o)
+                               0x2d90 (size before relaxing)
+ .stab          0x000092dc      0x8dc G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(port.o)
                                 0xcd8 (size before relaxing)
- .stab          0x0000a1ac      0x120 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
+ .stab          0x00009bb8      0x120 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(system_time.o)
                                 0x360 (size before relaxing)
- .stab          0x0000a2cc      0x30c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
+ .stab          0x00009cd8      0x30c G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(hooks.o)
                                 0x768 (size before relaxing)
- .stab          0x0000a5d8      0x474 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
+ .stab          0x00009fe4      0x474 G:/3_PROGRAMOWANIE/8_C_AVR_Embeded/0_EclipseWorkspace/freeRTOS823_Static_Library/Debug/libfreeRTOS823_Static_Library.a(list.o)
                                 0x780 (size before relaxing)
 
-.stabstr        0x00000000     0x9dfc
+.stabstr        0x00000000     0x9aa6
  *(.stabstr)
- .stabstr       0x00000000     0x9dfc ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
+ .stabstr       0x00000000     0x9aa6 ./drivers/sensors/tempHumidityDHT22/DhtTalker.o
 
 .stab.excl
  *(.stab.excl)
