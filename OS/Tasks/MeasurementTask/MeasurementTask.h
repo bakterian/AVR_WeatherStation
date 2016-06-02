@@ -10,7 +10,7 @@
 
 #include "../../../Configuration/Globals.h"
 #include "../../../Application/SensorManagement/SensorManager.h"
-
+#include "../Utils/TaskStatsProvider.h"
 namespace OS
 {
 namespace Tasks
@@ -20,7 +20,7 @@ namespace Tasks
  * \Class MeasurementTask
  * Runs the measurement task
  */
-class MeasurementTask : TaskClass
+class MeasurementTask : public TaskClass, TaskStatsProvider
 {
 	public:
    /**
@@ -31,8 +31,7 @@ class MeasurementTask : TaskClass
 		char const* 									csName;
 		TaskPriority 									ePriority;
 		unsigned int 									u16StackDepth;
-		//xComPortHandle 									hConsoleOut;
-		//QueueHandle_t 									hConsoleMutex;
+		TickType_t 		 								sPrintTaskStatsTimeout;
 		Application::SensorManagement::SensorManager 	sSensorManager;
 	};
 
@@ -53,7 +52,7 @@ class MeasurementTask : TaskClass
 	virtual void task();
 
 	private:
-	TaskConfiguration m_sConfig;
+	TaskConfiguration 	m_sConfig;
 };
 
 } /* namespace Tasks */

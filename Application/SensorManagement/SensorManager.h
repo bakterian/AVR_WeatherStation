@@ -16,16 +16,20 @@ namespace Application
 namespace SensorManagement
 {
 using namespace ::drivers::sensors;
+
 /*
  * @Brief Class - Responsible for sensor measurement coordination
  */
 class SensorManager {
 public:
+
 	struct SensorConfiguration
 	{
-		ISensor* pSensorList;
-		uint8_t	 u8SensorCount;
+		ISensor**		 pSensorList;			// list containing ISensors
+		uint8_t	 		 u8SensorCount;			// number of elements in sensor list
+		TickType_t 		 sPrintResultsTimeout;	// tick count which needs to pass from last result print
 	};
+
 	/*
 	 * Brief CTOR
 	 */
@@ -37,19 +41,27 @@ public:
 	virtual ~SensorManager();
 
 	/*
-	 * Brief initialze sensors
+	 * Brief initialize sensors
 	 * return ET_OK if completed successfully
 	 */
-	ERRORTYPE InitSensors();
+	ERRORTYPE initSensors();
 
 	/*
-	 * Brief run measurements
+	 * Brief  run measurements
 	 * return ET_OK if completed successfully
 	 */
-	ERRORTYPE Run(xComPortHandle& rConsole, QueueHandle_t& rConsoleMutex);
+	ERRORTYPE run();
+
+	/*
+	 * Brief  Update the serial trace with the latest results
+	 * return ET_OK if completed successfully
+	 */
+	ERRORTYPE printResultsStdOut();
 
 private:
-	SensorConfiguration m_sConfig;
+	SensorConfiguration 	m_sConfig;
+	TimeOut_t				m_sLastResultPrintTimestamp;
+	TickType_t 				m_sPrintResultsTimeout;
 };
 
 } /* namespace SensorManagement */

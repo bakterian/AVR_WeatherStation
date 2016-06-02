@@ -20,6 +20,7 @@ enum SensorType
 {
 	eDustSensor,
 	eVoltageSensor,
+	eHumiditySensor,
 	eTemperatureSensor,
 	ePressureSensor,
 	eRainSensor
@@ -32,11 +33,24 @@ enum SensorType
 class ISensor {
 public:
 
+	/**
+	 * \brief cyclicly triggers measurement start
+	 * \return ET_OK - measurement finished without problems
+	 * \return ET_OK_NOT - measurement finished with problems
+	 * \return ET_PENDING - measurement is ongoing
+	 */
+	virtual ERRORTYPE run();
+
+	/**
+	 * \brief delivers the measurement result.
+	 */
+	virtual uint32_t getResult() { return 0xFFFFFFFF; }
+
 	struct Configuration
 	{
-		const uint8_t* csSensorDescription;
-		const uint8_t* csSensorUnits;
-		SensorType	eSensorType;
+		const uint8_t* csSensorDescription;		 /* sensor description */
+		const uint8_t* csSensorUnits;			/*  sensor units	  */
+		SensorType	eSensorType;			   /*   sensor type	     */
 	};
 
 	/**
@@ -50,23 +64,10 @@ public:
 	virtual ~ISensor();
 
 	/**
-	 * \brief cyclicly triggers measurement start
+	 * \brief triggers sensor initialization
 	 * \return ET_OK - sensor was initialized
 	 */
 	virtual ERRORTYPE initialize();
-
-	/**
-	 * \brief cyclicly triggers measurement start
-	 * \return ET_OK - measurement finished without problems
-	 * \return ET_OK_NOT - measurement finished with problems
-	 * \return ET_PENDING - measurement is ongoing
-	 */
-	virtual ERRORTYPE Run();
-
-	/**
-	 * \brief delivers the measurement result.
-	 */
-	virtual uint32_t getResult() { return 0xFFFFFFFF; }
 
 	/**
 	 * \brief provides the sensor description
@@ -85,6 +86,7 @@ public:
 	 * \return sensor type
 	 */
 	SensorType getSensorType() const;
+
 private:
 	Configuration m_ISensorConfig;
 };
