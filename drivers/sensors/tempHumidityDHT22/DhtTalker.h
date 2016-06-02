@@ -20,10 +20,11 @@ class DhtTalker
 public:
 	#define DATA_BUFFER_SIZE 				5U
 	#define VOLTAGE_PULSE_COUNT 			80
-	#define MAX_PULSE_COUNT					0xFFFFFFFAU
+	#define MAX_PULSE_COUNT					0xFFFFFF00U
 	#define	PULSE_COUNT_TIMEDOUT			0U
 
-	#define TALKER_PIN						PB1
+	#define TALKER_BIT						PB1
+	#define TALKER_PIN						PINB
 	#define TALKER_PORT						PORTB
 	#define TALKER_DDR						DDRB
 
@@ -35,14 +36,14 @@ public:
 
 	#define STATE_IDLE						0U
 	#define STATE_PRE_INIT					1U
-	#define STATE_RECEIVING_DATA			3U
-	#define STATE_EVALUATING_DATA			4U
-	#define STATE_ERRORS					5
+	#define STATE_RECEIVING_DATA			2U
+	#define STATE_EVALUATING_DATA			3U
+	#define STATE_ERRORS					4U
 
 	enum VoltagePulseType
 	{
-		eLow,
-		eHigh
+		eLow  = uint8_t(0),
+		eHigh = uint8_t(1)
 	};
 
 	/**
@@ -134,8 +135,8 @@ private:
 
 	static const TalkerStateEntry 	m_sTalkerStateMap[];
 
-	uint32_t* 				m_pa32PulseContainer;
 	uint8_t 				m_au8DataBuffer[DATA_BUFFER_SIZE];
+	uint8_t* 				m_pu8PulseContainer;
 	uint8_t					m_u8TalkerState;
 	uint8_t					m_u8NewTalkerState;
 	TimeOut_t				m_sMeasFinishedTimestamp;

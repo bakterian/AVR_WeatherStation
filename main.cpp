@@ -50,10 +50,9 @@
 
 		::drivers::sensors::TempHumiditySensor::DhtMeasurmentData DHT_MEAS_DATA = { 0U, 0U, 0U};
 
-
 		::drivers::sensors::TempHumiditySensor::DhtConfiguartion HUMIDITY_SENSOR_CFG =
 		{
-			0,
+			&DHT_TALKER,
 			DHT_MEAS_DATA,
 			{
 				(const uint8_t*) "HumiditySensor",	 	/* sensor description  */
@@ -61,22 +60,34 @@
 				::drivers::sensors::eHumiditySensor   /*   sensor type	     */
 			}
 		};
-
 		::drivers::sensors::TempHumiditySensor HUMIDITY_SENSOR(HUMIDITY_SENSOR_CFG);
-		/* -------------------------------------------------------------- */
 
+		::drivers::sensors::TempHumiditySensor::DhtConfiguartion TEMP_SENSOR_CFG =
+		{
+			&DHT_TALKER,
+			DHT_MEAS_DATA,
+			{
+				(const uint8_t*) "TemperatureSensor",	   /* sensor description  */
+				(const uint8_t*) "deg C",		   	   	  /*  sensor units	      */
+				::drivers::sensors::eTemperatureSensor   /*   sensor type	     */
+			}
+		};
+
+		::drivers::sensors::TempHumiditySensor TEMPERATURE_SENSOR(TEMP_SENSOR_CFG);
+		/* -------------------------------------------------------------- */
 
 		::drivers::sensors::ISensor* SENSOR_LIST[] =
 		{
-			&DUST_SENSOR
+			&DUST_SENSOR,
+			&HUMIDITY_SENSOR,
+			&TEMPERATURE_SENSOR
 		};
-
 
 		::Application::SensorManagement::SensorManager::SensorConfiguration SENSOR_MGR_CFG =
 		{
 			&SENSOR_LIST[0],											// list containing ISensors
 			sizeof(SENSOR_LIST)/sizeof(::drivers::sensors::ISensor*),	// number of elements in sensor list
-			(2000 / portTICK_PERIOD_MS)									// 2s need to pass from last result print
+			(4000 / portTICK_PERIOD_MS)								    // 4s need to pass from last result print
 		};
 
 		::Application::SensorManagement::SensorManager SENSOR_MGR(SENSOR_MGR_CFG);
@@ -84,15 +95,16 @@
 
 		/* ----------- TASK CONFIGURATION  ---------------------- */
 
+
 		const ::OS::Tasks::MeasurementTask::TaskConfiguration MeasurmentTaskCfg =
 		{
 			"MeasurementTask",
 			TaskPrio_Low,
 			(unsigned int) 256,
+			(10000 / portTICK_PERIOD_MS),
 			SENSOR_MGR
 		};
 		::OS::Tasks::MeasurementTask cMeasTask(MeasurmentTaskCfg);
-
 
 		const ::OS::Tasks::BlinkTask::TaskConfiguration BlinkTaskCfg =
 		{
@@ -100,6 +112,7 @@
 			TaskPrio_Low,
 			(unsigned int) 256,
 			(unsigned int) 500,
+			(10000 / portTICK_PERIOD_MS)
 		};
 		::OS::Tasks::BlinkTask cBlinkTask(BlinkTaskCfg);
 

@@ -11,6 +11,7 @@ RM := rm -rf
 -include drivers/sensors/tempHumidityDHT22/subdir.mk
 -include drivers/sensors/DustSharpGp2y10/subdir.mk
 -include drivers/sensors/subdir.mk
+-include OS/Tasks/Utils/subdir.mk
 -include OS/Tasks/MeasurementTask/subdir.mk
 -include OS/Tasks/BlinkTask/subdir.mk
 -include Configuration/subdir.mk

@@ -24,13 +24,14 @@ namespace sensors
 
 	ERRORTYPE TempHumiditySensor::initialize()
 	{
+		ERRORTYPE eRet = m_sDhtConfig.pDhtTalker->init();
 		return (ET_OK);
 	}
 
 	ERRORTYPE TempHumiditySensor::run()
 	{
-		if(m_sDhtConfig.pDhtTalker != NULL)
-		{//perform serial measurement only if the dht talker was provided
+		if((m_sDhtConfig.pDhtTalker != NULL) && (m_sDhtConfig.sBaseConfig.eSensorType == eHumiditySensor))
+		{//perform serial measurement only if the dht talker was provided and this a humidity sensor instance
 			m_sDhtConfig.pDhtTalker->run();
 		}
 		return (ET_OK);

@@ -35,6 +35,7 @@ Application/SensorManagement \
 Configuration \
 OS/Tasks/BlinkTask \
 OS/Tasks/MeasurementTask \
+OS/Tasks/Utils \
 drivers/sensors/DustSharpGp2y10 \
 drivers/sensors \
 drivers/sensors/tempHumidityDHT22 \

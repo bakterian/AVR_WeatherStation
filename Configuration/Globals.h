@@ -38,6 +38,7 @@
 __extension__ typedef int __guard __attribute__((mode (__DI__)));
 
 
+
 extern "C" int __cxa_atexit(void (*destructor) (void *), void *arg, void *dso);
 extern "C" void __cxa_finalize(void *f);
 
@@ -46,6 +47,8 @@ extern "C" void __cxa_guard_release (__guard *);
 extern "C" void __cxa_guard_abort (__guard *);
 
 extern "C" void __cxa_pure_virtual(void);
+
+extern "C" uint16_t  xTaskGetAbsolutTimeMs();
 
 extern QueueHandle_t xConsoleMutex;
 extern xComPortHandle xSerialPort;

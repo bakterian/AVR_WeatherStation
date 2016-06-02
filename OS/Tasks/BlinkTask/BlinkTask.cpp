@@ -14,7 +14,8 @@ namespace Tasks
 
 BlinkTask::BlinkTask(const TaskConfiguration& rConfiguration):
 TaskClass(rConfiguration.csName, rConfiguration.ePriority, rConfiguration.u16StackDepth),
-m_sConfig(rConfiguration)
+m_sConfig(rConfiguration),
+TaskStatsProvider(rConfiguration.sPrintTaskStatsTimeout)
 {
 
 }
@@ -37,6 +38,7 @@ void BlinkTask::task()
 
 	while(1)
 	{
+		this->printStats();
 		PORTA |=  _BV(PORTA1);       // main (yellow PA1) LED on.
 		PORTA &= ~_BV(PORTA2);       // main (blue IO_A2) LED off.
 
@@ -47,9 +49,11 @@ void BlinkTask::task()
 
 		vTaskDelayUntil( &xLastWakeTime, ( m_sConfig.u16BlinkIntervalMs / portTICK_PERIOD_MS ) );
 
+		/*
        xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-       xSerialxPrintf_P( &xSerialPort, PSTR("LED HighWater @ %u, system_tick:%d \r\n"), uxTaskGetStackHighWaterMark(NULL), xTaskGetTickCount());
+       xSerialxPrintf_P( &xSerialPort, PSTR("| Blink Task | Stack HighWater @ %u, system time:%u ms.\r\n"), uxTaskGetStackHighWaterMark(NULL), xTaskGetAbsolutTimeMs());
        xSemaphoreGive(xConsoleMutex);
+       */
 	}
 }
 

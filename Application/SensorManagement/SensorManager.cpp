@@ -20,7 +20,6 @@ namespace SensorManagement
 
 	}
 
-
 	SensorManager::~SensorManager()
 	{
 
@@ -62,6 +61,7 @@ namespace SensorManagement
 			}
 		}
 
+
 		if( (ET_OK == eRet) &&
 			(pdTRUE == xTaskCheckForTimeOut(&m_sLastResultPrintTimestamp, &m_sPrintResultsTimeout)))
 		{
@@ -82,7 +82,7 @@ namespace SensorManagement
 		{
 			uint32_t u32Result = m_sConfig.pSensorList[u8Loop]->getResult();
 			xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-			xSerialxPrintf_P( &xSerialPort, PSTR("%s = %i "), m_sConfig.pSensorList[u8Loop]->getDescription(),u32Result);
+			xSerialxPrintf_P( &xSerialPort, PSTR("|Sensor Mgr| %s = %i "), m_sConfig.pSensorList[u8Loop]->getDescription(),u32Result);
 			xSerialxPrintf_P( &xSerialPort, PSTR("%s\r\n"), m_sConfig.pSensorList[u8Loop]->getSensorUnits());
 			xSemaphoreGive(xConsoleMutex);
 		}

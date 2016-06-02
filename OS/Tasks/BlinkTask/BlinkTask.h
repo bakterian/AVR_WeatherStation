@@ -9,13 +9,14 @@
 #define OS_TASKS_BLINKTASK_BLINKTASK_H_
 
 #include "../../../Configuration/Globals.h"
+#include "../Utils/TaskStatsProvider.h"
 
 namespace OS
 {
 namespace Tasks
 {
 
-class BlinkTask : TaskClass
+class BlinkTask : public TaskClass, TaskStatsProvider
 {
 	public:
 	/**
@@ -27,8 +28,7 @@ class BlinkTask : TaskClass
 		TaskPriority ePriority;
 		unsigned int u16StackDepth;
 		unsigned int u16BlinkIntervalMs;
-		//xComPortHandle hConsoleOut;
-		//QueueHandle_t hConsoleMutex;
+		TickType_t 	 sPrintTaskStatsTimeout;
 	};
 
 	/**
@@ -48,7 +48,7 @@ class BlinkTask : TaskClass
 	virtual void task();
 
 	private:
-	TaskConfiguration m_sConfig;
+	TaskConfiguration 	m_sConfig;
 };
 
 } /* namespace Tasks */

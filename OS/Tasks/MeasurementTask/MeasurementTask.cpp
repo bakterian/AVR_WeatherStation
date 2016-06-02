@@ -14,7 +14,8 @@ namespace Tasks
 
 	MeasurementTask::MeasurementTask(const TaskConfiguration& rConfiguration):
 	TaskClass(rConfiguration.csName, rConfiguration.ePriority, rConfiguration.u16StackDepth),
-	m_sConfig(rConfiguration)
+	m_sConfig(rConfiguration),
+	TaskStatsProvider(rConfiguration.sPrintTaskStatsTimeout)
 	{
 
 	}
@@ -28,31 +29,23 @@ namespace Tasks
 	{
 		ERRORTYPE eRet = m_sConfig.sSensorManager.initSensors();
 
-        xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-        if (ET_OK == eRet)
+        if (ET_OK != eRet)
         {
-    		avrSerialxPrint_P( &xSerialPort, PSTR("\r\nSensor Initialization was successful.\r\n"));
+        	xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
+        	xSerialxPrintf_P( &xSerialPort, PSTR("\r\nProblems during sensor initialization, system time:%u ms.\r\n"), xTaskGetAbsolutTimeMs());
+    		xSemaphoreGive(xConsoleMutex);
+    		return;
         }
-        else
-        {
-    		avrSerialxPrint_P( &xSerialPort, PSTR("\r\nProblems during sensor initialization.\r\n"));
-        }
-        xSemaphoreGive(xConsoleMutex);
 
 		while(1)
 		{
+			this->printStats();
+
 			eRet = m_sConfig.sSensorManager.run();
 			if(ET_OK != eRet)
 			{
 		        xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-		        if (ET_PENDING == eRet)
-		        {
-		    		avrSerialxPrint_P( &xSerialPort, PSTR("\r\nMeasurment is taking too long.\r\n"));
-		        }
-		        else
-		        {
-		    		avrSerialxPrint_P( &xSerialPort, PSTR("\r\nMeasurement Errors.\r\n"));
-		        }
+		        xSerialxPrintf_P( &xSerialPort, PSTR("\r\nMeasurement Errors, system time:%u ms.\r\n"), xTaskGetAbsolutTimeMs());
 		        xSemaphoreGive(xConsoleMutex);
 			}
 		};
