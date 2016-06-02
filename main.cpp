@@ -94,8 +94,6 @@
 		/* -------------------------------------------------------- */
 
 		/* ----------- TASK CONFIGURATION  ---------------------- */
-
-
 		const ::OS::Tasks::MeasurementTask::TaskConfiguration MeasurmentTaskCfg =
 		{
 			"MeasurementTask",
@@ -119,6 +117,5 @@
 		/* -------------------------------------------------------- */
 
 		vTaskStartScheduler();
-
 		avrSerialxPrint_P( &xSerialPort, PSTR("\r\n\n\nGoodbye... no space for idle task!\r\n")); // Doh, so we're dead...
 	}
