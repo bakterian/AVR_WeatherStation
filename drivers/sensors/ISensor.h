@@ -8,6 +8,7 @@
 #ifndef DRIVERS_SENSORS_ISENSOR_H_
 #define DRIVERS_SENSORS_ISENSOR_H_
 
+#include "..\..\Configuration\Globals.h"
 #include "commonTypes.h"
 #include "stdint.h"
 
@@ -22,6 +23,7 @@ enum SensorType
 	eVoltageSensor,
 	eHumiditySensor,
 	eTemperatureSensor,
+	eLightSensor,
 	ePressureSensor,
 	eRainSensor
 };
@@ -48,9 +50,9 @@ public:
 
 	struct Configuration
 	{
-		const uint8_t* csSensorDescription;		 /* sensor description */
-		const uint8_t* csSensorUnits;			/*  sensor units	  */
-		SensorType	eSensorType;			   /*   sensor type	     */
+		PGM_P 		psSensorDescription;				 /* sensor description */
+		PGM_P	 	psSensorUnits;						/*  sensor units	  */
+		SensorType	eSensorType;			  		   /*   sensor type	     */
 	};
 
 	/**
@@ -70,16 +72,22 @@ public:
 	virtual ERRORTYPE initialize();
 
 	/**
-	 * \brief provides the sensor description
-	 * \return pointer to cstring with the sensor description
+	 * \brief provides the sensor state
+	 * \return sensor state
 	 */
-	const uint8_t* getDescription() const;
+	virtual uint8_t getSensorState() const;
+
+	/**
+	 * \brief provides the sensor description
+	 * \return pointer to cstring stored in flash with the sensor description
+	 */
+	PGM_P getDescription() const;
 
 	/**
 	 * \brief provides the sensor units
-	 * \return pointer to cstring with the sensor units
+	 * \return pointer to cstring stored in flash with the sensor units
 	 */
-	const uint8_t* getSensorUnits() const;
+	PGM_P getSensorUnits() const;
 
 	/**
 	 * \brief provides the sensor type
