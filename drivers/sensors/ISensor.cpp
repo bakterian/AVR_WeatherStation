@@ -28,19 +28,24 @@ ERRORTYPE ISensor::initialize()
 	return (ET_OK);
 }
 
+uint8_t ISensor::getSensorState() const
+{
+	return uint8_t(0xFFU);
+}
+
 ERRORTYPE ISensor::run()
 {
 	return (ET_NOK);
 }
 
-const uint8_t* ISensor::getDescription() const
+PGM_P ISensor::getDescription() const
 {
-	return m_ISensorConfig.csSensorDescription;
+	return m_ISensorConfig.psSensorDescription;
 }
 
-const uint8_t* ISensor::getSensorUnits() const
+PGM_P ISensor::getSensorUnits() const
 {
-	return m_ISensorConfig.csSensorUnits;
+	return m_ISensorConfig.psSensorUnits;
 }
 
 SensorType ISensor::getSensorType() const

@@ -55,7 +55,9 @@ namespace SensorManagement
 			if(ET_OK != eRet)
 			{
 				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-				xSerialxPrintf_P( &xSerialPort, PSTR("/SENSOR MGR/ One of the sensors encountered problems.\r\n"));
+				xSerialPrint_P(PSTR("/SENSOR MGR/ "));
+				xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getDescription());
+				xSerialxPrintf_P( &xSerialPort, PSTR(", in state %u, encountered problems.\r\n"),m_sConfig.pSensorList[u8Loop]->getSensorState());
 				xSemaphoreGive(xConsoleMutex);
 				break;
 			}
@@ -82,8 +84,11 @@ namespace SensorManagement
 		{
 			uint32_t u32Result = m_sConfig.pSensorList[u8Loop]->getResult();
 			xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-			xSerialxPrintf_P( &xSerialPort, PSTR("|Sensor Mgr| %s = %i "), m_sConfig.pSensorList[u8Loop]->getDescription(),u32Result);
-			xSerialxPrintf_P( &xSerialPort, PSTR("%s\r\n"), m_sConfig.pSensorList[u8Loop]->getSensorUnits());
+			xSerialPrint_P(PSTR("|Sensor Mgr| "));
+			xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getDescription());
+			xSerialxPrintf_P( &xSerialPort, PSTR(" = %i "),u32Result);
+			xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getSensorUnits());
+			xSerialPrint_P(PSTR("\r\n"));
 			xSemaphoreGive(xConsoleMutex);
 		}
 

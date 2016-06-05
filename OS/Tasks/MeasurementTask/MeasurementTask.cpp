@@ -14,8 +14,8 @@ namespace Tasks
 
 	MeasurementTask::MeasurementTask(const TaskConfiguration& rConfiguration):
 	TaskClass(rConfiguration.csName, rConfiguration.ePriority, rConfiguration.u16StackDepth),
-	m_sConfig(rConfiguration),
-	TaskStatsProvider(rConfiguration.sPrintTaskStatsTimeout)
+	TaskStatsProvider(rConfiguration.sPrintTaskStatsTimeout),
+	m_sConfig(rConfiguration)
 	{
 
 	}

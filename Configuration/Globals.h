@@ -17,6 +17,7 @@
 #include <string.h>
 #include <avr/io.h>
 #include <avr/sleep.h>
+#include <avr/pgmspace.h>
 #include <util/delay.h>
 #include "FreeRTOS.h"
 #include "task.h"
