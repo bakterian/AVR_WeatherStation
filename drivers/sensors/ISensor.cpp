@@ -28,6 +28,11 @@ ERRORTYPE ISensor::initialize()
 	return (ET_OK);
 }
 
+uint32_t ISensor::getResult(MeasDataType eMeasDataType)
+{
+	return 0xFFFFFFFF;
+}
+
 uint8_t ISensor::getSensorState() const
 {
 	return uint8_t(0xFFU);
@@ -38,19 +43,14 @@ ERRORTYPE ISensor::run()
 	return (ET_NOK);
 }
 
-PGM_P ISensor::getDescription() const
+ISensor::MeasurementDataInfo ISensor::getMeasDataInfo(uint8_t u8MeasDataNo) const
 {
-	return m_ISensorConfig.psSensorDescription;
+	return m_ISensorConfig.pMeasurmentDataList[u8MeasDataNo];
 }
 
-PGM_P ISensor::getSensorUnits() const
+uint8_t ISensor::getMeasDataCount() const
 {
-	return m_ISensorConfig.psSensorUnits;
-}
-
-SensorType ISensor::getSensorType() const
-{
-	return m_ISensorConfig.eSensorType;
+	return m_ISensorConfig.u8MeasurmentDataCount;
 }
 
 } /* namespace sensors */

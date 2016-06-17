@@ -38,6 +38,9 @@ OS/Tasks/MeasurementTask \
 OS/Tasks/Utils \
 drivers/sensors/DustSharpGp2y10 \
 drivers/sensors \
+drivers/sensors/LightSensorBH1750 \
+drivers/sensors/PressureSensorBMP180 \
 drivers/sensors/tempHumidityDHT22 \
+drivers/utils/wire \
 . \
 

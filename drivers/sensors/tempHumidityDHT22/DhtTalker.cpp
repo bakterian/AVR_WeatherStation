@@ -25,8 +25,7 @@ namespace sensors
 	DhtTalker::DhtTalker() :
 		m_u8TalkerState(STATE_IDLE),
 		m_u8NewTalkerState(STATE_IDLE),
-		m_sLastMeasTimeout(TICK_TIMEOUT_LAST_MEAS),
-		m_sInitialLowStateTimeout(TICK_TIMEOUT_INIT_LOW_STATE)
+		m_sLastMeasTimeout(TICK_TIMEOUT_LAST_MEAS)
 	{
 		m_pu8PulseContainer = (uint8_t*)pvPortMalloc(VOLTAGE_PULSE_COUNT*sizeof(uint8_t));
 		memset(&m_au8DataBuffer,0x00U,DATA_BUFFER_SIZE);
@@ -82,30 +81,12 @@ namespace sensors
 		{
 			vTaskSetTimeOutState(&m_sMeasFinishedTimestamp);
 			m_sLastMeasTimeout = TICK_TIMEOUT_LAST_MEAS;
-
-			/*
-			// uncomment to see a Demo of Timeout handling
-			xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-			xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| Entered PreInitState, waiting 2000 ms, system time:%u ms.\r\n"), xTaskGetAbsolutTimeMs());
-			xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| m_sMeasFinishedTimestamp time on entering %u ,overflowCount: %d\r\n"),m_sMeasFinishedTimestamp.xTimeOnEntering,  m_sMeasFinishedTimestamp.xOverflowCount );
-			xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| m_sLastMeasTimeout = %u \r\n"),m_sLastMeasTimeout );
-			xSemaphoreGive(xConsoleMutex);
-			*/
 			m_u8TalkerState = m_u8NewTalkerState;
 		}
 		else
 		{
 			if( pdTRUE == xTaskCheckForTimeOut(&m_sMeasFinishedTimestamp, &m_sLastMeasTimeout) )
 			{//timeout elapsed new serial read can be started
-
-				/*
-				// uncomment to see a Demo of Timeout handling
-				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-				xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| Last Measurement Timeout has passed, system time:%u ms.\r\n"), xTaskGetAbsolutTimeMs());
-				xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| m_sMeasFinishedTimestamp time on entering %u ,overflowCount: %d\r\n"),m_sMeasFinishedTimestamp.xTimeOnEntering,  m_sMeasFinishedTimestamp.xOverflowCount );
-				xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| m_sLastMeasTimeout = %u \r\n"),m_sLastMeasTimeout );
-				xSemaphoreGive(xConsoleMutex);
-				*/
 				m_u8NewTalkerState = STATE_RECEIVING_DATA;
 			}
 		}
@@ -119,19 +100,16 @@ namespace sensors
 		// is this the first state entry?
 		if(m_u8NewTalkerState != m_u8TalkerState)
 		{
+			m_u8TalkerState = m_u8NewTalkerState;
+		}
+		else
+		{
+			//taskENTER_CRITICAL();
+			vTaskSuspendAll();
 			TALKER_DDR 	|=   (1 << TALKER_BIT);	// setting talker pin as output
 			TALKER_PORT	&=  ~(1 << TALKER_BIT);	// talker output pin should stay low
 
-			vTaskSetTimeOutState(&m_sHandshakeStartTimestamp);
-			m_sInitialLowStateTimeout = TICK_TIMEOUT_INIT_LOW_STATE;
-
-			m_u8TalkerState = m_u8NewTalkerState;
-		}
-		else if( xTaskCheckForTimeOut(&m_sHandshakeStartTimestamp, &m_sInitialLowStateTimeout) == pdTRUE)
-		{//initial low signal has be on for long enough for the DHT to notice it
-
-			//taskENTER_CRITICAL();
-			vTaskSuspendAll();
+			_delay_ms(20);
 
 			TALKER_PORT	|=  (1 << TALKER_BIT);	// set pin to high in order to finish the initial handshake
 
@@ -178,7 +156,6 @@ namespace sensors
 				m_u8NewTalkerState = STATE_EVALUATING_DATA;
 			}
 
-			//taskEXIT_CRITICAL();
 			xTaskResumeAll();
 		}
 
@@ -196,6 +173,7 @@ namespace sensors
 		}
 		else
 		{
+		  vTaskSuspendAll();
 		  // Inspect pulses and determine which ones are 0 (high state cycle count < low
 		  // state cycle count), or 1 (high state cycle count > low state cycle count).
 		  for (uint8_t u8Loop = 0 ; u8Loop < (VOLTAGE_PULSE_COUNT/2) ; ++u8Loop)
@@ -205,6 +183,9 @@ namespace sensors
 
 			if ((u8lowCycles == PULSE_COUNT_TIMEDOUT) || (u8HighCycles == PULSE_COUNT_TIMEDOUT))
 			{
+				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
+				xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| Pulse count mismatch %u, system time:%u ms.\r\n"), m_u8TalkerState,xTaskGetAbsolutTimeMs());
+				xSemaphoreGive(xConsoleMutex);
 				eRet = ET_NOK;
 				break;
 			}
@@ -224,9 +205,10 @@ namespace sensors
 			  (m_au8DataBuffer[4] != ((m_au8DataBuffer[0] + m_au8DataBuffer[1] +
 				                      m_au8DataBuffer[2] + m_au8DataBuffer[3]) & 0xFF)))
 		  {
-			  eRet = ET_NOK;
+				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
+				xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| Checksum mismatch %u, system time:%u ms.\r\n"), m_u8TalkerState,xTaskGetAbsolutTimeMs());
+				xSemaphoreGive(xConsoleMutex);
 		  }
-
 
 	      if(eRet == ET_NOK)
 	      {// in case of measurement issues enter error state
@@ -236,6 +218,7 @@ namespace sensors
 		  {// Result evaluation completed prepare for next 1 wire read
 				m_u8NewTalkerState = STATE_PRE_INIT;
 	      }
+	      xTaskResumeAll();
 		}
 
 		return (eRet);
@@ -247,7 +230,7 @@ namespace sensors
 		if(m_u8NewTalkerState != m_u8TalkerState)
 		{
 			xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-			xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| Error state, system time:%u ms.\r\n"), xTaskGetAbsolutTimeMs());
+			xSerialxPrintf_P( &xSerialPort, PSTR("|DHT Talker| Error state, previous state was %u, system time:%u ms.\r\n"), m_u8TalkerState,xTaskGetAbsolutTimeMs());
 			xSemaphoreGive(xConsoleMutex);
 
 			m_u8TalkerState = m_u8NewTalkerState;

@@ -62,15 +62,6 @@ namespace sensors
 
 		if(m_u8NewSensorState != m_u8SensorState)
 		{
-			/*
-			if(m_u8NewSensorState == STATE_RESULT_CALCUALATION )
-			{
-				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-				xSerialxPrintf_P( &xSerialPort, PSTR("/ %s / New result is ready, current system tick: %d.\r\n"), this->getDescription(),xTaskGetTickCount());
-				xSemaphoreGive(xConsoleMutex);
-			}
-			*/
-
 			m_u8SensorState = m_u8NewSensorState;
 		}
 
@@ -100,7 +91,7 @@ namespace sensors
 		return (eRet);
 	}
 
-	uint32_t DustSensor::getResult()
+	uint32_t DustSensor::getResult(MeasDataType eMeasDataType)
 	{
 		return (uint32_t) m_u16DustQuantity;
 	}
@@ -148,6 +139,7 @@ namespace sensors
 	{
 		if( pdTRUE == xTaskCheckForTimeOut(&m_sMeasTimestamp, &m_sMeasTimeout))
 		{
+			vTaskSuspendAll();
 			uint16_t u16Temp = 0;
 
 			u16Temp = makeSingleMeas();
@@ -167,12 +159,14 @@ namespace sensors
 			//next measurement will start no sooner than after 10 ms.
 			vTaskSetTimeOutState(&m_sMeasTimestamp);
 			m_sMeasTimeout = MEAS_TICK_TIMEOUT;
+			xTaskResumeAll();
 		}
 
 	}
 
 	void DustSensor::doDustCalculation()
 	{
+		vTaskSuspendAll();
 		m_u16AdcResultSum = (m_u16AdcResultSum/MEASUREMENT_COUNT);
 
 		if(MIN_ADC_VOLTAGE_MV > m_u16AdcResultSum)
@@ -185,12 +179,13 @@ namespace sensors
 		}
 
 		m_u8NewSensorState = STATE_STAND_BY;
+		xTaskResumeAll();
 	}
 
 	void DustSensor::doErrorStatusPrint()
 	{
 		xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-		xSerialxPrintf_P( &xSerialPort, PSTR("/ %s / Entered Error State something went horribly wrong! "), this->getDescription());
+		xSerialxPrintf_P( &xSerialPort, PSTR("/ Dust Sensor / Entered Error State something went horribly wrong! "));
 		xSemaphoreGive(xConsoleMutex);
 
 		m_u8NewSensorState = STATE_IDLE;

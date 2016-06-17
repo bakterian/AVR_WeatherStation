@@ -56,7 +56,7 @@ namespace SensorManagement
 			{
 				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
 				xSerialPrint_P(PSTR("/SENSOR MGR/ "));
-				xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getDescription());
+				xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getMeasDataInfo(0).psMeasDataDescription);
 				xSerialxPrintf_P( &xSerialPort, PSTR(", in state %u, encountered problems.\r\n"),m_sConfig.pSensorList[u8Loop]->getSensorState());
 				xSemaphoreGive(xConsoleMutex);
 				break;
@@ -80,16 +80,23 @@ namespace SensorManagement
 	{
 		ERRORTYPE eRet =  ET_OK;
 
-		for(uint8_t u8Loop = 0; u8Loop < m_sConfig.u8SensorCount; ++u8Loop)
+		//iterate through each sensor
+		for(uint8_t u8SensorNo = 0; u8SensorNo < m_sConfig.u8SensorCount; ++u8SensorNo)
 		{
-			uint32_t u32Result = m_sConfig.pSensorList[u8Loop]->getResult();
-			xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
-			xSerialPrint_P(PSTR("|Sensor Mgr| "));
-			xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getDescription());
-			xSerialxPrintf_P( &xSerialPort, PSTR(" = %i "),u32Result);
-			xSerialPrint_P(m_sConfig.pSensorList[u8Loop]->getSensorUnits());
-			xSerialPrint_P(PSTR("\r\n"));
-			xSemaphoreGive(xConsoleMutex);
+			//iterate through each measurment data type which is provided by the sensor
+			for(uint8_t u8MeasDataNo = 0; u8MeasDataNo < m_sConfig.pSensorList[u8SensorNo]->getMeasDataCount(); ++u8MeasDataNo)
+			{
+				ISensor::MeasurementDataInfo eMeasDataInfo = m_sConfig.pSensorList[u8SensorNo]->getMeasDataInfo(u8MeasDataNo);
+				uint32_t u32Result = m_sConfig.pSensorList[u8SensorNo]->getResult(eMeasDataInfo.eMeasDataType);
+
+				xSemaphoreTake(xConsoleMutex, portMAX_DELAY);
+				xSerialPrint_P(PSTR("|Sensor Mgr| "));
+				xSerialPrint_P(eMeasDataInfo.psMeasDataDescription);
+				xSerialxPrintf_P( &xSerialPort, PSTR(" = %lu "),u32Result);
+				xSerialPrint_P(eMeasDataInfo.psUnits);
+				xSerialPrint_P(PSTR("\r\n"));
+				xSemaphoreGive(xConsoleMutex);
+			}
 		}
 
 		return eRet;
