@@ -64,7 +64,7 @@ class DustSensor : public ISensor
 	 * \brief delivers the measurement result.
 	 * \return sensor measurement result
 	 */
-	virtual uint32_t getResult();
+	virtual uint32_t getResult(MeasDataType eMeasDataType);
 
 protected:
 	/**

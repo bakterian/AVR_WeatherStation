@@ -11,7 +11,6 @@ namespace drivers
 {
 namespace sensors
 {
-
 	const LightSensor::SensorStateEntry LightSensor::m_sSensorStateMap[] =
 	{
 		{STATE_IDLE_, 				&LightSensor::stateIdle					},
@@ -41,9 +40,9 @@ namespace sensors
 	{
 		ERRORTYPE eRet = ET_OK;
 
-		if(false == m_sConfig.pI2cManager->wasI2cInitialized())
+		if(false == m_sConfig.pTwiManager->wasI2cInitialized())
 		{
-			eRet =	m_sConfig.pI2cManager->initialize();
+			eRet =	m_sConfig.pTwiManager->initialize();
 		}
 
 		if(eRet == ET_OK)
@@ -67,7 +66,7 @@ namespace sensors
 		return m_u8NewSensorState;
 	}
 
-	uint32_t LightSensor::getResult()
+	uint32_t LightSensor::getResult(MeasDataType eMeasDataType)
 	{
 		return m_u32LastResult;
 	}
@@ -101,9 +100,9 @@ namespace sensors
 			xSemaphoreGive(xConsoleMutex);
 			#endif
 
-			if(false == m_sConfig.pI2cManager->wasI2cInitialized())
+			if(false == m_sConfig.pTwiManager->wasI2cInitialized())
 			{
-				eRet =	m_sConfig.pI2cManager->initialize();
+				eRet =	m_sConfig.pTwiManager->initialize();
 			}
 
 			if(eRet != ET_OK)
@@ -119,9 +118,9 @@ namespace sensors
 		{
 
 			vTaskSuspendAll();
-			m_pu8I2cBuffer[0] = (((uint8_t) m_sConfig.eI2cAdress) << 1U) | I2C_WRITE;
-			m_pu8I2cBuffer[1] = (uint8_t) m_sConfig.eOperationMode;
-			eRet = m_sConfig.pI2cManager->writeBlocking(m_pu8I2cBuffer,MEAS_MODE_CMD_LENGTH);
+			m_sConfig.pTwiManager->beginTransmission((uint8_t) m_sConfig.eI2cAdress);
+			m_sConfig.pTwiManager->write((uint8_t) m_sConfig.eOperationMode);
+			eRet= m_sConfig.pTwiManager->endTransmission(uint8_t(1U));
 			xTaskResumeAll();
 
 			if(eRet == ET_OK)
@@ -131,8 +130,8 @@ namespace sensors
 
 				m_u8NewSensorState = STATE_CLOCKING_OUT_DATA_;
 			}
-			else if(eRet != ET_I2C_BUSY)
-			{//if I2C line is busy then retry later
+			else
+			{
 				m_u8NewSensorState = STATE_ERROR_;
 			}
 		}
@@ -161,16 +160,19 @@ namespace sensors
 			{//timeout elapsed the result should be ready
 
 				vTaskSuspendAll();
-				m_pu8I2cBuffer[0] = (((uint8_t) m_sConfig.eI2cAdress) << 1U) | I2C_READ;
-				eRet = m_sConfig.pI2cManager->write(m_pu8I2cBuffer,RESULT_READ_CMD_LENGTH);
+				eRet = m_sConfig.pTwiManager->requestFrom((uint8_t) m_sConfig.eI2cAdress, uint8_t(2U),  uint8_t(1U));
+				if(eRet == ET_OK)
+				{
+					m_u32LastResult = (((uint16_t)(m_sConfig.pTwiManager->read()) << 8U) | m_sConfig.pTwiManager->read());
+				}
 				xTaskResumeAll();
 
 				if(eRet == ET_OK)
 				{
 					m_u8NewSensorState = STATE_RESULT_ACQUISITION_;
 				}
-				else if(eRet != ET_I2C_BUSY)
-				{//if I2C line is busy then retry later
+				else
+				{
 					m_u8NewSensorState = STATE_ERROR_;
 				}
 			}
@@ -196,27 +198,19 @@ namespace sensors
 		}
 		else
 		{
-			eRet = m_sConfig.pI2cManager->getI2cBuffer(m_pu8I2cBuffer,RESULT_READ_CMD_LENGTH);
+			//calculating the lux value (works only for two modes)
+			//m_u32LastResult = (((((uint32_t)m_pu8I2cBuffer[1]) << 8U) | ((uint32_t)m_pu8I2cBuffer[2])) * uint32_t(10U)) /uint32_t(12U);
+			m_u32LastResult = (m_u32LastResult * uint32_t(10U)) / uint32_t(12U);
 
-			if(eRet == ET_OK)
-			{
-				//calculating the lux value (works only for two modes)
-				m_u32LastResult = (((((uint32_t)m_pu8I2cBuffer[1]) << 8U) | ((uint32_t)m_pu8I2cBuffer[2])) * uint32_t(10U)) /uint32_t(12U);
-
-				if((uint8_t)m_sConfig.eOperationMode < uint8_t(0x20))
-				{//sensor is running in continuous mode, therefore we only need gather results
-					vTaskSetTimeOutState(&m_sMeasStartTimestamp);
-					m_sMeasuringTimeout = TICK_MEASUREMENT_TIMEOUT;
-					m_u8NewSensorState = STATE_CLOCKING_OUT_DATA_;
-				}
-				else
-				{//the sensor is making single measurements and is in power down mode
-					m_u8NewSensorState = STATE_LOAD_CONFIG_;
-				}
+			if((uint8_t)m_sConfig.eOperationMode < uint8_t(0x20))
+			{//sensor is running in continuous mode, therefore we only need gather results
+				vTaskSetTimeOutState(&m_sMeasStartTimestamp);
+				m_sMeasuringTimeout = TICK_MEASUREMENT_TIMEOUT;
+				m_u8NewSensorState = STATE_CLOCKING_OUT_DATA_;
 			}
-			else if(eRet != ET_I2C_BUSY)
-			{//if I2C line is busy then retry later
-				m_u8NewSensorState = STATE_ERROR_;
+			else
+			{//the sensor is making single measurements and is in power down mode
+				m_u8NewSensorState = STATE_LOAD_CONFIG_;
 			}
 		}
 

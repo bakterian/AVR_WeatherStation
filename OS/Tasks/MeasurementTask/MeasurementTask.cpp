@@ -48,6 +48,8 @@ namespace Tasks
 		        xSerialxPrintf_P( &xSerialPort, PSTR("\r\nMeasurement Errors, system time:%u ms.\r\n"), xTaskGetAbsolutTimeMs());
 		        xSemaphoreGive(xConsoleMutex);
 			}
+
+			taskYIELD();
 		};
 	}
 
