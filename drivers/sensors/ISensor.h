@@ -17,23 +17,37 @@ namespace drivers
 namespace sensors
 {
 
-enum SensorType
+enum MeasDataType
 {
-	eDustSensor,
-	eVoltageSensor,
-	eHumiditySensor,
-	eTemperatureSensor,
-	eLightSensor,
-	ePressureSensor,
-	eRainSensor
+	Dust,
+	Voltage,
+	Humidity,
+	Temperature,
+	Light,
+	Pressure,
+	RainDrops
 };
 
 /**
  * \Interface ISensor
  * Provides a common sensor interface.
  */
-class ISensor {
+class ISensor
+{
 public:
+
+	struct MeasurementDataInfo
+	{
+		PGM_P 					psMeasDataDescription;			  /*  measurement data description 	*/
+		PGM_P	 				psUnits;					   	  /*  measurement data units	  	*/
+		MeasDataType			eMeasDataType;			      	  /*  measurement data type 	    */
+	};
+
+	struct Configuration
+	{
+		MeasurementDataInfo*	pMeasurmentDataList;			  /*   measurement data list  		*/
+		uint8_t					u8MeasurmentDataCount;			  /*   measurement data count 		*/
+	};
 
 	/**
 	 * \brief cyclicly triggers measurement start
@@ -46,14 +60,7 @@ public:
 	/**
 	 * \brief delivers the measurement result.
 	 */
-	virtual uint32_t getResult() { return 0xFFFFFFFF; }
-
-	struct Configuration
-	{
-		PGM_P 		psSensorDescription;				 /* sensor description */
-		PGM_P	 	psSensorUnits;						/*  sensor units	  */
-		SensorType	eSensorType;			  		   /*   sensor type	     */
-	};
+	virtual uint32_t getResult(MeasDataType eMeasDataType);
 
 	/**
 	 * \brief CTOR
@@ -78,22 +85,14 @@ public:
 	virtual uint8_t getSensorState() const;
 
 	/**
-	 * \brief provides the sensor description
-	 * \return pointer to cstring stored in flash with the sensor description
+	 * \brief provides the measurement data structure
 	 */
-	PGM_P getDescription() const;
+	MeasurementDataInfo getMeasDataInfo(uint8_t u8MeasDataNo) const;
 
 	/**
-	 * \brief provides the sensor units
-	 * \return pointer to cstring stored in flash with the sensor units
+	 * \brief provides the measurement data count
 	 */
-	PGM_P getSensorUnits() const;
-
-	/**
-	 * \brief provides the sensor type
-	 * \return sensor type
-	 */
-	SensorType getSensorType() const;
+	uint8_t getMeasDataCount() const;
 
 private:
 	Configuration m_ISensorConfig;

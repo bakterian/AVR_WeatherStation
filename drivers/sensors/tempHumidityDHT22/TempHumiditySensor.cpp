@@ -25,21 +25,21 @@ namespace sensors
 	ERRORTYPE TempHumiditySensor::initialize()
 	{
 		ERRORTYPE eRet = m_sDhtConfig.pDhtTalker->init();
-		return (ET_OK);
+		return (eRet);
 	}
 
 	ERRORTYPE TempHumiditySensor::run()
 	{
-		if((m_sDhtConfig.pDhtTalker != NULL) && (m_sDhtConfig.sBaseConfig.eSensorType == eHumiditySensor))
+		if((m_sDhtConfig.pDhtTalker != NULL))
 		{//perform serial measurement only if the dht talker was provided and this a humidity sensor instance
 			m_sDhtConfig.pDhtTalker->run();
 		}
 		return (ET_OK);
 	}
 
-	uint32_t TempHumiditySensor::getResult()
+	uint32_t TempHumiditySensor::getResult(MeasDataType eMeasDataType)
 	{
-		uint32_t u32Ret = 0;
+		uint32_t u32Ret = 0xFFFFFFFFU;
 
 		uint8_t* pu8ReceivedData = m_sDhtConfig.pDhtTalker->getReceivedData();
 
@@ -47,11 +47,11 @@ namespace sensors
 		m_sDhtConfig.sDhtMeasurementData.u16Temperature = (((pu8ReceivedData[2U] << 8U) + pu8ReceivedData[3U])/ 10U);
 		m_sDhtConfig.sDhtMeasurementData.u8Crc = pu8ReceivedData[4U];
 
-		if(this->getSensorType() == eHumiditySensor)
+		if(eMeasDataType == Humidity)
 		{
 			u32Ret = m_sDhtConfig.sDhtMeasurementData.u16Humidity;
 		}
-		else
+		else if(eMeasDataType == Temperature)
 		{
 			u32Ret = m_sDhtConfig.sDhtMeasurementData.u16Temperature;
 		}

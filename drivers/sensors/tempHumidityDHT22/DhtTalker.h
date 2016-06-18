@@ -140,9 +140,7 @@ private:
 	uint8_t					m_u8TalkerState;
 	uint8_t					m_u8NewTalkerState;
 	TimeOut_t				m_sMeasFinishedTimestamp;
-	TimeOut_t				m_sHandshakeStartTimestamp;
 	TickType_t 				m_sLastMeasTimeout;				//tick count which needs to pass from last result read
-	TickType_t 				m_sInitialLowStateTimeout;		//tick count which needs to pass in order to reach proper low pin state
 };
 
 } /* namespace sensors */

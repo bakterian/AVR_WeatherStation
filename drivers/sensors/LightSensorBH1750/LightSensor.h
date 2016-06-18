@@ -10,7 +10,7 @@
 
 #include "..\..\..\Configuration\Globals.h"
 #include "..\ISensor.h"
-#include "..\..\Utils\I2cManager.h"
+#include "..\..\Utils\wire\TwiManager.h"
 
 namespace drivers
 {
@@ -20,7 +20,8 @@ namespace sensors
 class LightSensor : public ISensor
 {
 public:
-
+	/***************************************************************/
+	/**\name	MISCELLANEOUS DEFINITION      				   	   */
 	//#define BH1750_DEBUG 					uint8_t(0x01U) 			// to activate extra debug traces uncomment
 	#define BH1750_POWER_DOWN				uint8_t(0x00U) 			// No active state
 	#define BH1750_POWER_ON 				uint8_t(0x01U) 			// Wating for measurment command
@@ -29,14 +30,22 @@ public:
 	#define RESULT_READ_CMD_LENGTH			uint8_t(0x03)
 	#define TICK_MEASUREMENT_TIMEOUT		(120 / portTICK_PERIOD_MS)
 	#define TICK_MEAS_MODE_SET_TIMEOUT		(180 / portTICK_PERIOD_MS)
+	/***************************************************************/
 
-
+	/****************************************************/
+	/**\name	SENSOR STATE DEFINITIONS      			*/
 	#define STATE_IDLE_						uint8_t(0x00U)
 	#define	STATE_LOAD_CONFIG_				uint8_t(0x01U)
 	#define STATE_CLOCKING_OUT_DATA_		uint8_t(0x02U)
 	#define STATE_RESULT_ACQUISITION_		uint8_t(0x03U)
 	#define STATE_ERROR_					uint8_t(0x04U)
+	/****************************************************/
 
+	/****************************************************/
+	/**\name	CLASS SPECIFIC EXTRA TYPES              */
+	/*!
+	 * @brief BH1750OperationMode is used for measurement mode specification
+	 */
 	enum BH1750OperationMode
 	{
 		ContinousHighResMode 	 = uint8_t(0x10U), // Start measurement at 1lx resolution. Measurement time is approx 120ms.
@@ -47,19 +56,27 @@ public:
 		OneTimeLowResMode		 = uint8_t(0x23U) // Start measurement at 1lx resolution. Measurement time is approx 120ms.
 	};
 
+	/*!
+	 * @brief BH1750I2cAddress is used for I2C Address specification, is dependent on the address pin voltage level
+	 */
 	enum BH1750I2cAddress
 	{
 		AddressV1 	 = uint8_t(0x23U), // The ADDR is pulled low
 		AddressV2	 = uint8_t(0x58U)  // The ADDR is pulled high
 	};
 
+	/*!
+	 * @brief PressureSesnor Configuration and references
+	 */
 	struct Configuration
 	{
-		BH1750OperationMode						eOperationMode;		/* BH1750 measurement mode  	*/
-		BH1750I2cAddress						eI2cAdress;			/* BH1750 I2C Address variant 	*/
-		::drivers::sensors::I2cManager*			pI2cManager;		/* Pointer to the I2c Manager 	*/
-		ISensor::Configuration	 				sBaseConfig;		/* BH1750 measurement mode  */
+		BH1750OperationMode						eOperationMode;		// BH1750 measurement mode
+		BH1750I2cAddress						eI2cAdress;			// BH1750 I2C Address variant
+		//::drivers::sensors::I2cManager*			pI2cManager;		// Pointer to the I2c Manager
+		::drivers::sensors::TwiManager*			pTwiManager;		// Pointer to the I2c Manager
+		ISensor::Configuration	 				sBaseConfig;		// ISensor base configuration
 	};
+	/****************************************************/
 
 	/**
 	 * \brief CTOR
@@ -95,14 +112,13 @@ public:
 	 * \brief delivers the measurement result.
 	 * \return sensor measurement result
 	 */
-	virtual uint32_t getResult();
+	virtual uint32_t getResult(MeasDataType eMeasDataType);
 
 protected:
 
 	/**
 	 * \brief state idle
-	 * \return ET_OK - acquired results
-	 * \return ET_NOK - there were issues during the result acquisition
+	 * \return ET_OK - entered state without issues
 	 */
 	virtual ERRORTYPE stateIdle();
 
@@ -132,10 +148,9 @@ protected:
 
 	/**
 	 * \brief The talker lands here in case of errors. TODO add error recovery stratergy
-	 * \return ET_OK - no problems were encountered
-	 * \return ET_OK_NOT - the were errors
+	 * \return ET_OK - entered state without issues
 	 */
-	ERRORTYPE stateError();
+	virtual ERRORTYPE stateError();
 
 	struct SensorStateEntry
 	{
@@ -146,6 +161,17 @@ protected:
 	static const SensorStateEntry 	m_sSensorStateMap[];
 
 private:
+
+	/**
+	 * \brief The talker lands here in case of errors. TODO add error recovery stratergy
+	 * \return ET_OK - entered state without issues
+	 */
+	//ERRORTYPE readMeasResult();
+
+	//ERRORTYPE setOperationMode();
+
+
+
 	const Configuration	 	m_sConfig;
 	uint32_t				m_u32LastResult;
 	uint8_t					m_u8SensorState;
