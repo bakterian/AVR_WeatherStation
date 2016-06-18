@@ -47,6 +47,7 @@ public:
 	{
 		MeasurementDataInfo*	pMeasurmentDataList;			  /*   measurement data list  		*/
 		uint8_t					u8MeasurmentDataCount;			  /*   measurement data count 		*/
+
 	};
 
 	/**

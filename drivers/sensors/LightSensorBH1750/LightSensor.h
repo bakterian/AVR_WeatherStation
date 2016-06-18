@@ -72,7 +72,6 @@ public:
 	{
 		BH1750OperationMode						eOperationMode;		// BH1750 measurement mode
 		BH1750I2cAddress						eI2cAdress;			// BH1750 I2C Address variant
-		//::drivers::sensors::I2cManager*			pI2cManager;		// Pointer to the I2c Manager
 		::drivers::sensors::TwiManager*			pTwiManager;		// Pointer to the I2c Manager
 		ISensor::Configuration	 				sBaseConfig;		// ISensor base configuration
 	};

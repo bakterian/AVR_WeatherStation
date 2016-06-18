@@ -40,7 +40,9 @@ drivers/sensors/DustSharpGp2y10 \
 drivers/sensors \
 drivers/sensors/LightSensorBH1750 \
 drivers/sensors/PressureSensorBMP180 \
+drivers/sensors/RainSensor \
 drivers/sensors/tempHumidityDHT22 \
+drivers/utils/adc \
 drivers/utils/wire \
 . \
 

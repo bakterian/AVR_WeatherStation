@@ -9,6 +9,7 @@
 
 /* references to sensor drivers */
 #include "drivers/sensors/DustSharpGp2y10/DustSensor.h"
+#include "drivers/sensors/RainSensor/RainSensor.h"
 #include "drivers/sensors/tempHumidityDHT22/DhtTalker.h"
 #include "drivers/sensors/tempHumidityDHT22/TempHumiditySensor.h"
 #include "drivers/sensors/LightSensorBH1750/LightSensor.h"
@@ -17,8 +18,6 @@
 /* references to task classes */
 #include "OS/Tasks/BlinkTask/BlinkTask.h"
 #include "OS/Tasks/MeasurementTask/MeasurementTask.h"
-
-
 
 	/* Main program loop */
 	int main(void) __attribute__((OS_main));
@@ -37,7 +36,14 @@
 		/* ---------------- SENSOR CONFIGURATION  ---------------------- */
 
 		/* -------------------------- DUST SENSOR ---------------------- */
-		// TODO: move sensor pin and port definition to configuration level
+		::drivers::sensors::AdcManager::Configuration ADC_MGR_CFG =
+		{
+			::drivers::sensors::AdcManager::Internal_2_56V,			// defines the voltage reference to be used during measurment
+			::drivers::sensors::AdcManager::SingleEndedMode,		// defines the adc operation mode
+			::drivers::sensors::AdcManager::Normal_10bit			// defines the adc resolution, software oversampling is supported
+		};
+
+		::drivers::sensors::AdcManager				 ADC_MANAGER(ADC_MGR_CFG);
 
 		::drivers::sensors::ISensor::MeasurementDataInfo DUST_MEAS_DATA_INFO =
 		{
@@ -46,13 +52,45 @@
 			::drivers::sensors::Dust		   		//  measurement data type
 		};
 
-		::drivers::sensors::ISensor::Configuration DUST_SENSOR_CFG =
+		::drivers::sensors::ISensor::Configuration DUST_MEAS_INFO_LIST_CFG =
 		{
 			&DUST_MEAS_DATA_INFO,
 			sizeof(DUST_MEAS_DATA_INFO)/sizeof(::drivers::sensors::ISensor::MeasurementDataInfo)
 		};
 
+		::drivers::sensors::DustSensor::Configuration DUST_SENSOR_CFG =
+		{
+			&ADC_MANAGER,				// Pointer to the Adc Manager
+			uint8_t(0U),				// Specifies the Adc Channel which will be used for the measurement
+			DUST_MEAS_INFO_LIST_CFG		// ISensor base configuration
+		};
+
 		::drivers::sensors::DustSensor DUST_SENSOR(DUST_SENSOR_CFG);
+		/* -------------------------------------------------------------- */
+
+		/* -------------------------- RAIN SENSOR ---------------------- */
+		::drivers::sensors::ISensor::MeasurementDataInfo RAIN_MEAS_DATA_INFO =
+		{
+			PSTR("Rain Drops"),	 		   		//  measurement data description
+			PSTR("proc"),		  		   		//  measurement data units
+			::drivers::sensors::RainDrops  		//  measurement data type
+		};
+
+		::drivers::sensors::ISensor::Configuration RAIN_MEAS_INFO_LIST_CFG =
+		{
+			&RAIN_MEAS_DATA_INFO,
+			sizeof(RAIN_MEAS_DATA_INFO)/sizeof(::drivers::sensors::ISensor::MeasurementDataInfo)
+		};
+
+		::drivers::sensors::RainSensor::RainConfiguration RAIN_SENSOR_CFG =
+		{
+			&ADC_MANAGER,				// Pointer to the Adc Manager
+			uint8_t(3U),				// Specifies the Adc Channel which will be used for the measurement
+			uint8_t(4U),				// Specifies the Adc Channel which will be used for calibration
+			RAIN_MEAS_INFO_LIST_CFG		// ISensor base configuration
+		};
+
+		::drivers::sensors::RainSensor RAIN_SENSOR(RAIN_SENSOR_CFG);
 		/* -------------------------------------------------------------- */
 
 		/* ----------------  TEMPERATURE HUMIDITY SENSOR ---------------- */
@@ -169,6 +207,7 @@
 		::drivers::sensors::ISensor* SENSOR_LIST[] =
 		{
 			&DUST_SENSOR,
+			&RAIN_SENSOR,
 			&DHT22_TEMP_HUMIDITY_SENSOR,
 			&LIGHT_SENSOR,
 			&BMP180_PRESSURE_TEMP_SENSOR
@@ -189,7 +228,7 @@
 		{
 			"MeasurementTask",
 			TaskPrio_Low,
-			(unsigned int) 224,
+			(unsigned int) 256,
 			(10000 / portTICK_PERIOD_MS),
 			SENSOR_MGR
 		};
@@ -209,6 +248,9 @@
 
 		/* -------------------------------------------------------- */
 		//TODO move all description strings to progmem as currently they are stored on the stack -> Data -> RAM
+		//TODO to save space pass pointers to config not references
+		//TODO check how often are copy constructors called ( check configuration structs and classses)
+
 		avrSerialPrintf_P( PSTR("\r\nFree Heap Size: %u\r\n"),xPortGetFreeHeapSize() );
 		vTaskStartScheduler();
 		avrSerialxPrint_P( &xSerialPort, PSTR("\r\nGoodbye... no space for idle task!\r\n")); // Doh, so we're dead...

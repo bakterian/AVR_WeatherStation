@@ -10,6 +10,7 @@
 
 #include "..\ISensor.h"
 #include "..\..\..\Configuration\Globals.h"
+#include "..\..\Utils\adc\AdcManager.h"
 
 namespace drivers
 {
@@ -36,10 +37,17 @@ class DustSensor : public ISensor
 	#define SLEEP_TIMEOUT_US 			9680.0f
 	#define MEAS_TICK_TIMEOUT			(10 / portTICK_PERIOD_MS)
 
+	struct Configuration
+	{
+		::drivers::sensors::AdcManager*			pAdcManager;		// Pointer to the Adc Manager
+		uint8_t									u8AdcChannel;		// Specifies the Adc Channel which will be used for measurement
+		ISensor::Configuration	 				sBaseConfig;		// ISensor base configuration
+	};
+
 	/**
 	 * \CTOR
 	 */
-	DustSensor(const ISensor::Configuration& rConfig);
+	DustSensor(const Configuration& rConfig);
 
 	/**
 	 * \brief DTOR
@@ -121,13 +129,15 @@ private:
 	#define						STATE_RESULT_CALCUALATION		3U
 	#define						STATE_ERROR						4U
 
-	uint16_t 					m_u16DustQuantity;
-	uint16_t 					m_u16AdcResultSum;
-	uint8_t						m_u8MeasurementLoop;
-	uint8_t						m_u8SensorState;
-	uint8_t 					m_u8NewSensorState;
-	TickType_t 					m_sMeasTimeout;
-	TimeOut_t					m_sMeasTimestamp;
+	uint16_t 								m_u16DustQuantity;
+	uint16_t 								m_u16AdcResultSum;
+	uint8_t									m_u8MeasurementLoop;
+	uint8_t									m_u8SensorState;
+	uint8_t 								m_u8NewSensorState;
+	TickType_t 								m_sMeasTimeout;
+	TimeOut_t								m_sMeasTimestamp;
+	::drivers::sensors::AdcManager*			m_pAdcManager;
+	uint8_t									m_u8AdcChannel;
 };
 
 } /* namespace sensors */
