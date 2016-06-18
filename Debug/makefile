@@ -9,7 +9,9 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include drivers/utils/wire/subdir.mk
+-include drivers/utils/adc/subdir.mk
 -include drivers/sensors/tempHumidityDHT22/subdir.mk
+-include drivers/sensors/RainSensor/subdir.mk
 -include drivers/sensors/PressureSensorBMP180/subdir.mk
 -include drivers/sensors/LightSensorBH1750/subdir.mk
 -include drivers/sensors/DustSharpGp2y10/subdir.mk

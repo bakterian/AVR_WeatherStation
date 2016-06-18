@@ -15,14 +15,16 @@ namespace drivers
 namespace sensors
 {
 
-	DustSensor::DustSensor(const ISensor::Configuration& rConfig):
-		ISensor(rConfig),
+	DustSensor::DustSensor(const Configuration& rConfig):
+		ISensor(rConfig.sBaseConfig),
 		m_u16DustQuantity(0),
 		m_u16AdcResultSum(0),
 		m_u8MeasurementLoop(0),
 		m_u8SensorState(STATE_IDLE),
 		m_u8NewSensorState(STATE_IDLE),
-		m_sMeasTimeout(MEAS_TICK_TIMEOUT)
+		m_sMeasTimeout(MEAS_TICK_TIMEOUT),
+		m_pAdcManager(rConfig.pAdcManager),
+		m_u8AdcChannel(rConfig.u8AdcChannel)
 	{
 
 	}
@@ -34,17 +36,6 @@ namespace sensors
 
 	ERRORTYPE DustSensor::initialize()
 	{
-		/* ADC SETTINGS */
-		ADCSRA = (1<<ADEN) 					// ADEN=1 turning the ADC on
-		         |(1<<ADPS0) 				// setting the prescaller to 128 (with a 8 MHz F_CPU this will result in a sampling rate of 62 500 Hz)
-		         |(1<<ADPS1)
-		         |(1<<ADPS2);
-
-		ADMUX  = (1<<REFS0) |(1<<REFS1) ;	// REFS0=1,REFS1=1 2,56 with external capacitor at AREF pin
-											// Performing a measurement in the single ended mode on channel ADC0
-		DDRA &= ~_BV(DDA0);
-		PINA &= ~_BV(PINA0);
-
 		/* SENSOR LED SETTINGS */
 		DDRB  |= (1 << DDB0);				// setting pin B0 as output
 		PORTB |= _BV(SENOR_INTERNAL_LED);	// output B0 set low
@@ -99,22 +90,13 @@ namespace sensors
 	uint16_t DustSensor::makeSingleMeas()
 	{
 		uint16_t u16Ret = 0;
+		m_pAdcManager->intialize(m_u8AdcChannel);
 		setLED();
 		_delay_us(PRE_SAMPLING_TIMEOUT_US);
-		u16Ret = readAdcValue();
+		u16Ret = m_pAdcManager->readAdcValue(m_u8AdcChannel) * (uint16_t)11U;
 		_delay_us(POST_SAMPLING_TIMEOUT_US);
 		clearLED();
-
 		return u16Ret;
-	}
-
-	uint16_t DustSensor::readAdcValue()
-	{
-	    ADCSRA |= (1<<ADSC); 		//ADSC: enabling one single conversion
-
-	    while(ADCSRA & (1<<ADSC)); 	//waiting for the measurement to end
-
-	    return (uint16_t)(((ADC*ADC_VREF_MV)/ADC_RESOLUTION) * (uint16_t)11U);
 	}
 
 	void DustSensor::setLED()
